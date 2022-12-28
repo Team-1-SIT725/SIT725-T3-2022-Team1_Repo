@@ -22,12 +22,3 @@ module.exports = router;
 
 // refer to https://medium.com/@cmpbilge/routing-with-nodejs-express-4ce79752e146 for how this routing system works.
 
-// module.exports = {
-//   accountRoutes: require("./accountRoutes.js"),
-//   adminRoutes: require("./adminRoutes"),
-//   itemRoutes: require("./itemRoutes"),
-//   itemSearchRoutes: require("./itemSearchRoutes"),
-//   messagesRoutes: require("./messagesRoutes"),
-//   userProfilePrivateRoutes: require("./userProfilePrivateRoutes"),
-//   userProfilePublicRoutes: require("./userProfilePublicRoutes"),
-// };
