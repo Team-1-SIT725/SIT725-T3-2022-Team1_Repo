@@ -1,0 +1,31 @@
+{
+  "name": "trade-bi-bata",
+  "version": "0.0.1",
+  "description": "TradeBiBata Web Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test" : "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kachi-Okorie/SIT725-T3-2022-Team1_Repo.git"
+  },
+  "author": "Onyedikachi Okorie, Philip Williams, Jingcheng Xu, Raja Yarlagadda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kachi-Okorie/SIT725-T3-2022-Team1_Repo/issues"
+  },
+  "homepage": "https://github.com/Kachi-Okorie/SIT725-T3-2022-Team1_Repo#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mocha": "^10.2.0",
+    "mongodb": "^4.13.0"
+  },
+  "devDependencies": {
+    "prettier": "2.8.1"
+  }
+}
