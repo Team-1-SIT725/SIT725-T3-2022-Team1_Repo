@@ -3,6 +3,14 @@ var express = require("express");
 var app = express();
 var cors = require("cors");
 let Routes = require("./routes");
+let dbConnect = require('./DBconnect');
+
+
+
+//database connection
+
+
+// connectDB();
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());

@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test" : "mocha --reporter spec"
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,11 @@
     "chai": "^4.3.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
+    "env": "^0.0.2",
     "express": "^4.18.2",
     "mocha": "^10.2.0",
-    "mongodb": "^4.13.0"
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.2"
   },
   "devDependencies": {
     "prettier": "2.8.1"
