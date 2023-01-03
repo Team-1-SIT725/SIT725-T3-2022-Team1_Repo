@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SIT725 Week 5 Practical</title>
+    <meta name="description" content="basic template for SIT725 Week 5 Practical">
+    <meta name="author" content="SitePoint">
+
+    <meta property="og:title" content="SIT 725 Prac 5">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="basic template for SIT725 Week 5 Practical">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom Style Sheet-->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper navbar-size">
+            <a href="#" class="brand-logo"><img class="user-image-size" src="images/puppy1.jpg" /></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a target="_blank" href="https://www.deakin.edu.au/course/master-information-technology">Deakin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h2>NODE.JS MVC</h2>
+                            <div class="card">
+                                <div class="card-header">Register</div>
+                                <div class="card-body">
+    
+                                    <form class="form-horizontal" method="post" action="/register">
+    
+                                        <div class="form-group">
+                                            <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                                        </div>
+                                        <div class="login-register">
+                                            <a href="/login.html">Login</a>
+                                        </div>
+                                    </form>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+    </div>
+    
+    </body>
+    </html>
