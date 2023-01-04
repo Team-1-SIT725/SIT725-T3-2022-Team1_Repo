@@ -27,15 +27,7 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper navbar-size">
-            <a href="#" class="brand-logo"><img class="user-image-size" src="images/tradebibatalogo.png" /></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a target="_blank" href="/login.html">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav> 
+    <div id="nav-placeholder"></div>
 
     <div class="container">
         <form class="form-horizontal" method="post" action="/register">
@@ -94,7 +86,18 @@
             </div>
         </form>
     </div>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+
+    $.get("nav.html", function (data) {
+
+        $("#nav-placeholder").replaceWith(data);
+
+    });
+
+</script>
 </body>
 
 </html>
