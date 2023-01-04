@@ -46,3 +46,11 @@ body {
     background-color: #3b0fda;
     margin-top: 50px;
 }
+
+.brand-logo img {
+    vertical-align: middle
+}
+
+.account-logo  {
+    vertical-align: middle;
+}
