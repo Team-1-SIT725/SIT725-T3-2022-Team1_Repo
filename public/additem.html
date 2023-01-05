@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TradeBiBata</title>
+    <meta name="description" content="TradeBiBata Web Application">
+    <meta name="author" content="SIT725 Group">
+    <meta property="og:title" content="TradeBiBata">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="basic template for SIT 725 Prac 4">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom Style Sheet-->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+
+    <div>
+        <div class="center-align">
+            <a class="waves-effect waves-light btn click-me-button modal-trigger" id="additembtn"
+                data-target="additem"><i class="material-icons left">add</i>Add Item</a>
+        </div>
+    </div>
+
+    <!-- Add item Modal-->
+    <div id="additem" class="modal">
+        <div class="row modal-content">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12 right-align">
+                        <a class="modal-close" id="formClose"><i class="material-icons">close</i></a>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="itemName" type="text" class="validate" data-length="250">
+                        <label for="itemName">Item Name</label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <select name="itemCategory" id="itemCategory">
+                            <option value="" disabled selected>Select Item Category</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Category</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <select name="itemCondition" id="itemCondition">
+                            <option value="" disabled selected>Select Condition</option>
+                            <option value="New">New</option>
+                            <option value="Like New">Like New</option>
+                            <option value="Light Use">Light Use</option>
+                            <option value="Used">Used</option>
+                        </select>
+                        <label>Item Condition</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="itemDescription" class="validate materialize-textarea"></textarea>
+                        <label for="itemDescription">Description</label>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <h6>Optional</h6>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="itemSize" type="text" class="validate">
+                        <label for="itemSize">Item Size</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="itemColour" type="text" class="validate">
+                        <label for="itemColour">Item Colour</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="itemValue" type="text" class="validate">
+                        <label for="itemValue">Approx. Item value</label>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 center-align">
+                <a class="waves-effect waves-light btn" id="addItemSubmit">submit</a>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $.get("nav.html", function (data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
