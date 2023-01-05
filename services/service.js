@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 
 const JWTSecret = "mfefkuhio3k2rjkofn2mbikbkwjhnkj";
 const bcryptSalt = 10;
-const clientURL = "localhost:3000";
+const clientURL = "http://localhost:3000";
 
 // const signup = async (data) => {
 //   let user = await User.findOne({ email: data.email });
@@ -35,6 +35,7 @@ const requestPasswordReset = async (email, res) => {
 
   let resetToken = crypto.randomBytes(32).toString("hex");
   const hash = await bcrypt.hash(resetToken, Number(bcryptSalt));
+ 
 
   await new Token({
     userId: user._id,
@@ -42,7 +43,7 @@ const requestPasswordReset = async (email, res) => {
     createdAt: Date.now(),
   }).save();
 
-  const link = `${clientURL}/passwordReset?token=${resetToken}&id=${user._id}`;
+  const link = `http://localhost:3000/resetpassword.html?token=${resetToken}&id=${user._id}`;
  // const link = `localhost:3000/resetpassword.html`
   sendEmail(
     user.email,
