@@ -1,4 +1,6 @@
+require("express-async-errors");
 require('dotenv').config() //it helps you work with all environments
+
 const express = require("express");
 //const path = require('path');
 const app = express();
