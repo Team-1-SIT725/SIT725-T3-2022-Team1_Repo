@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 
 const JWTSecret = "mfefkuhio3k2rjkofn2mbikbkwjhnkj";
 const bcryptSalt = 10;
-const clientURL = "localhost://3000";
+const clientURL = "localhost:3000";
 
 // const signup = async (data) => {
 //   let user = await User.findOne({ email: data.email });
@@ -26,7 +26,7 @@ const clientURL = "localhost://3000";
 //   });
 // };
 
-const requestPasswordReset = async (email) => {
+const requestPasswordReset = async (email, res) => {
   const user = await User.findOne({ email });
   if (!user) throw new Error("Email does not exist");
 
@@ -43,7 +43,7 @@ const requestPasswordReset = async (email) => {
   }).save();
 
   const link = `${clientURL}/passwordReset?token=${resetToken}&id=${user._id}`;
-
+ // const link = `localhost:3000/resetpassword.html`
   sendEmail(
     user.email,
     "Password Reset Request",
@@ -53,7 +53,9 @@ const requestPasswordReset = async (email) => {
     },
     "./template/requestResetPassword.handlebars"
   );
-  return { link };
+  const text = "A link has been sent to your email."
+  return '<p>' + text + '</p>';
+ // return { link };
 };
 
 const resetPassword = async (userId, token, password) => {
