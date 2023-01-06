@@ -34,14 +34,26 @@
         <div class="row modal-content">
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s12 right-align">
-                        <a class="modal-close" id="formClose"><i class="material-icons">close</i></a>
+                    <div class="row">
+                        <div class="input-field col s8 offset-s2 center-align">
+                            <div class="" id="img-preview"></div>
+                        </div>
+                        <div class="input-field col s2 right-align">
+                            <a class="modal-close" id="formClose"><i class="material-icons">close</i></a>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <input class="hide" type="file" name="files[]" id="img-upload" multiple>
+                            <label class="btn" for="img-upload">Upload Image</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="input-field col s12">
                         <input id="itemName" type="text" class="validate" data-length="250">
                         <label for="itemName">Item Name</label>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m6">
