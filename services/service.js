@@ -43,7 +43,7 @@ const requestPasswordReset = async (email, res) => {
     createdAt: Date.now(),
   }).save();
 
-  const link = `http://localhost:3000/resetpassword.html?token=${resetToken}&id=${user._id}`;
+  const link = `localhost:3000/resetpassword.html?token=${resetToken}&id=${user._id}`;
  // const link = `localhost:3000/resetpassword.html`
   sendEmail(
     user.email,
@@ -55,6 +55,7 @@ const requestPasswordReset = async (email, res) => {
     "./template/requestResetPassword.handlebars"
   );
   const text = "A link has been sent to your email."
+  
   return '<p>' + text + '</p>';
  // return { link };
 };

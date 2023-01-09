@@ -12,7 +12,8 @@ const {
     const requestPasswordResetService = await requestPasswordReset(
       req.body.email
     );
-    return res.json(requestPasswordResetService);
+    return res.redirect("/resetmessage.html");
+    //return res.json(requestPasswordResetService);
   };
   
   const resetPasswordController = async (req, res, next) => {
@@ -21,7 +22,8 @@ const {
       req.body.token,
       req.body.password
     );
-    return res.json(resetPasswordService);
+    return res.redirect("/successmessage.html");
+    //return res.json(resetPasswordService);
   };
   
   module.exports = {
