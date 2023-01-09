@@ -47,7 +47,7 @@ const registerUser = (req, res) => {
             newUser.password = hash;
             newUser
               .save()
-              .then(res.redirect("/login.html"))
+              .then(res.redirect("/emailverification.html"))
               .catch((err) => console.log(err));
           })
         );

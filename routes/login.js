@@ -10,6 +10,7 @@ const {
   const { dashboardView } = require("../controllers/dashboardController");
   const { protectRoute } = require("../auth/protect");
   const {resetPasswordRequestController, resetPasswordController,} = require("../controllers/forgotpassController");
+  const { verifyEmail } = require("../controllers/emailverifyController");
   
   router.get("/register", registerView);
   router.get("/login", loginView);
@@ -20,5 +21,6 @@ const {
   router.post("/login", loginUser);
   router.post("/requestPasswordReset", resetPasswordRequestController);
   router.post("/resetPassword", resetPasswordController);
+  router.post("/verifyemail", verifyEmail);
   
   module.exports = router;

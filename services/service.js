@@ -2,6 +2,7 @@ const JWT = require("jsonwebtoken");
 const User = require("../models/User");
 const Token = require("../models/Token");
 const sendEmail = require("../utils/sendEmail");
+const sendEmail2 = require("../utils/sendEmail2");
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 
@@ -43,7 +44,7 @@ const requestPasswordReset = async (email, res) => {
     createdAt: Date.now(),
   }).save();
 
-  const link = `http://localhost:3000/resetpassword.html?token=${resetToken}&id=${user._id}`;
+  const link = `localhost:3000/resetpassword.html?token=${resetToken}&id=${user._id}`;
  // const link = `localhost:3000/resetpassword.html`
   sendEmail(
     user.email,
@@ -96,7 +97,10 @@ const resetPassword = async (userId, token, password) => {
   await passwordResetToken.deleteOne();
 
   return { message: "Password reset was successful" };
+
 };
+
+
 
 module.exports = {
   requestPasswordReset,
