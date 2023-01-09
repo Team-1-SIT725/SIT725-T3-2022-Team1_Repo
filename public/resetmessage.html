@@ -28,32 +28,16 @@
     <div id="nav-placeholder"></div>
 
     <div class="container">
-        <form class="form-horizontal" method="post" action="/verifyEmail">
+        <form class="form-horizontal">
             <br>
             
-            <h5>Kindly click <strong>Verify Email</strong> to verify the provided email address.</h5>
+            <h5>A link has been sent to your email. Follow link to reset password</h5>
             <br>
-
-            <div class="form-group row">
-                <label for="email">Confirm Email:</label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="email" placeholder="@domain.com" name="email" required>
-                </div>
-            </div>
-            
-            <div class="col s12 center-align">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Verify Email
-                        <i class="material-icons right">send</i>
-                    </button>
-            </div>
-            <br>
-            
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src = "js/script.js"></script>
 <script>
 
     $.get("nav.html", function (data) {

@@ -1,6 +1,7 @@
 const {
     requestPasswordReset,
     resetPassword,
+    verifyEmail,
   } = require("../services/service");
   
 //   const signUpController = async (req, res, next) => {
@@ -12,7 +13,8 @@ const {
     const requestPasswordResetService = await requestPasswordReset(
       req.body.email
     );
-    return res.json(requestPasswordResetService);
+    return res.redirect("/resetmessage.html");
+    //return res.json(requestPasswordResetService);
   };
   
   const resetPasswordController = async (req, res, next) => {
@@ -21,10 +23,24 @@ const {
       req.body.token,
       req.body.password
     );
-    return res.json(resetPasswordService);
+    return res.redirect("/successmessage.html");
+    //return res.json(resetPasswordService);
   };
+
+  const verifyEmailController = async (req, res, next) => {
+    const verifyEmailService = await verifyEmail(
+      req.body.email
+    );
+    return res.redirect("/resetmessage.html");
+      //return res.json(verifyEmailService);
+      // const text = "A link has been sent to your email."
+      // return '<p>' + text + '</p>';
+     // return { link };
+    };
   
+   
   module.exports = {
     resetPasswordRequestController,
     resetPasswordController,
+    verifyEmailController,
   };
