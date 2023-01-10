@@ -1,5 +1,24 @@
 const mongoose = require("mongoose");
 
+const itemImagesSchema = mongoose.Schema({
+    filePath: {
+        type: String,
+        require: true,
+    },
+    originalFilename: {
+        type: String,
+        require: true,
+    },
+    newFilename: {
+        type: String,
+        require: true,
+    },
+    fileSize: {
+        type: Number,
+        require: true,
+    },
+});
+
 //DB schema for Items
 const itemSchema = mongoose.Schema({
     itemName: {
@@ -39,10 +58,12 @@ const itemSchema = mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    itemImages: [itemImagesSchema],
 });
 
 const item = mongoose.model("item", itemSchema);
-
+const itemImages = mongoose.model("itemImages", itemImagesSchema);
 module.exports = {
     item,
+    itemImages,
 };
