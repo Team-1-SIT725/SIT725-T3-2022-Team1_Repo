@@ -1,27 +1,20 @@
-require('dotenv').config() //it helps you work with all environments
-const mongoose = require('mongoose');
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = 'mongodb+srv://Kachi:prac5@cluster0.udrpgld.mongodb.net/?retryWrites=true&w=majority'
-// const client = new MongoClient(uri, {useNewUrlParser: true });
+//mongoDb connection
+require("dotenv").config();
+const mongoose = require("mongoose");
+let uri;
 
-// client.connect((err, db) => {
-    
-//     if (!err) {
-//         console.log('MongoDB Connected Successfully')
-//     }
+//Check if we are in prod or dev
+if (process.env.NODE_ENV === "development") {
+  uri = process.env.MONGO_URI_DEV;
+}
 
-//     else {
-//         console.log("DB Error: ", err);
-//         process.exit(1);
-//     }
-// })
+if (process.env.NODE_ENV === "production") {
+  uri = process.env.MONGO_URI_PROD;
+}
 
+main().catch((err) => console.log(err));
 
-
-// module.exports = client;
-
-// Mongo DB conncetion
-const database = 'mongodb+srv://Kachi:prac5@cluster0.udrpgld.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(database, {useUnifiedTopology: true, useNewUrlParser: true })
-.then(() => console.log('MongoDB Connected Successfully!'))
-.catch(err => console.log(err));
+async function main() {
+  await mongoose.connect(uri);
+  console.log("MongoDB Connected Successfully!");
+}
