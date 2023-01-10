@@ -10,6 +10,7 @@ const passport = require("passport");
 var cors = require("cors");
 let dbConnect = require("./DBconnect");
 const { loginCheck } = require("./auth/passport");
+// require("./dbConnect");
 loginCheck(passport);
 
 app.use(express.static(__dirname + "/public"));
