@@ -31,7 +31,7 @@ const {
     const verifyEmailService = await verifyEmail(
       req.body.email
     );
-    return res.redirect("/resetmessage.html");
+    return res.redirect("/verifyemail.html");
       //return res.json(verifyEmailService);
       // const text = "A link has been sent to your email."
       // return '<p>' + text + '</p>';
