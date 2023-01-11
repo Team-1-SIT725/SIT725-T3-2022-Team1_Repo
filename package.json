@@ -1,33 +1,45 @@
 {
-  "name": "trade-bi-bata",
-  "version": "0.0.1",
-  "description": "TradeBiBata Web Application",
-  "main": "server.js",
+  "name": "sit725-2022-t3-prac6",
+  "version": "1.0.0",
+  "description": "SIT725 Week 6 Practical",
+  "main": "index.js",
   "scripts": {
     "start": "node server.js",
     "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kachi-Okorie/SIT725-T3-2022-Team1_Repo.git"
+    "url": "git+https://github.com/Kachi-Okorie/SIT725-2022-t3-prac6.git"
   },
-  "author": "Onyedikachi Okorie, Philip Williams, Jingcheng Xu, Raja Yarlagadda",
-  "license": "MIT",
+  "author": "Onyedikachi Okorie",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kachi-Okorie/SIT725-T3-2022-Team1_Repo/issues"
+    "url": "https://github.com/Kachi-Okorie/SIT725-2022-t3-prac6/issues"
   },
-  "homepage": "https://github.com/Kachi-Okorie/SIT725-T3-2022-Team1_Repo#readme",
+  "homepage": "https://github.com/Kachi-Okorie/SIT725-2022-t3-prac6#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "chai": "^4.3.7",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
-    "env": "^0.0.2",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.7",
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^9.0.0",
     "mocha": "^10.2.0",
-    "mongodb": "^4.13.0",
-    "mongoose": "^6.8.2"
-  },
-  "devDependencies": {
-    "prettier": "2.8.1"
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.8.2",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
   }
 }

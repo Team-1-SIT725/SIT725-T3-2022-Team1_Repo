@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    font-size: 16px;
+}
+
+.form-group{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.navbar-size {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%;
+    height: 40%; */
+  }
+
+.user-image-size {
+    height: 56px;
+    margin: 4px 0;
+}
+
+.form-group label {
+    
+    font-size: 16px;
+   
+  }
+
+.main-body {
+    background-color: #e9edf1;
+    color: rgb(13, 12, 12);
+    height: calc(100vh - 64px);
+}
+.materialboxed-image {
+    margin: 0 auto;
+    height: 400px;
+}
+.click-me-button {
+    background-color: #3b0fda;
+    margin-top: 50px;
+}
+
+.brand-logo img {
+    vertical-align: middle
+}
+
+.account-logo  {
+    vertical-align: middle;
+}
