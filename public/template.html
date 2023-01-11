@@ -23,7 +23,7 @@
     <div id="nav-placeholder">
     </div>
     <div id="adrFile-placeholder"></div>
-    <div id="adr-placeholder"></div>
+    <!-- <div id="adr-placeholder"></div> -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -37,9 +37,9 @@
         $.get("adrFile.html", function (data) {
             $("#adrFile-placeholder").replaceWith(data);
         });
-        $.get("adr.html", function (data) {
-            $("#adr-placeholder").replaceWith(data);
-        });
+        // $.get("adr.html", function (data) {
+        //     $("#adr-placeholder").replaceWith(data);
+        // });
     </script>
 </body>
 
