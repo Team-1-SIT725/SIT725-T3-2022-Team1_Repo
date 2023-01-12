@@ -3,7 +3,7 @@ var router = express.Router();
 let controller = require("../controller");
 
 router.get("/", (req, res) => {
-    controller.itemSearchController.search(req, res);
+    controller.SearchController.search(req, res);
 });
 
 router.get("/item", (req, res) => {
