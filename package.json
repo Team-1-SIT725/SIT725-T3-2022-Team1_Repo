@@ -1,7 +1,7 @@
 {
-  "name": "sit725-2022-t3-prac6",
+  "name": "SIT725-T3-2022-Team1",
   "version": "1.0.0",
-  "description": "SIT725 Week 6 Practical",
+  "description": "SIT725 Project",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
@@ -30,11 +30,12 @@
     "express-session": "^1.17.3",
     "fs": "^0.0.1-security",
     "handlebars": "^4.7.7",
+    "i": "^0.3.7",
     "joi": "^17.7.0",
     "jsonwebtoken": "^9.0.0",
     "mocha": "^10.2.0",
     "mongodb": "^4.12.1",
-    "mongoose": "^6.8.2",
+    "mongoose": "^6.8.3",
     "nodemailer": "^6.8.0",
     "nodemon": "^2.0.20",
     "passport": "^0.6.0",

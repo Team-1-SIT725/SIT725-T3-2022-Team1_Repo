@@ -10,7 +10,7 @@ const session = require('express-session');
 dotenv.config();
 const passport = require("passport");
 var cors = require("cors")
-let dbConnect = require("./dbConnect");
+let DBconnect = require("./DBconnect");
 const { loginCheck } = require("./auth/passport");
 loginCheck(passport);
 
