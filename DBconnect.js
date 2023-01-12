@@ -21,7 +21,9 @@ const mongoose = require('mongoose');
 // module.exports = client;
 
 // Mongo DB conncetion
-const database = 'mongodb+srv://Kachi:prac5@cluster0.udrpgld.mongodb.net/?retryWrites=true&w=majority'
+const database = "mongodb+srv://user1:pass1@cluster0.2kjjmyt.mongodb.net/?retryWrites=true&w=majority"
+
+
 mongoose.connect(database, {useUnifiedTopology: true, useNewUrlParser: true })
 .then(() => console.log('MongoDB Connected Successfully!'))
 .catch(err => console.log(err));
