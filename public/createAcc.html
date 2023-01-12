@@ -1,7 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TradeBiBata</title>
+    <meta name="description" content="TradeBiBata Web Application">
+    <meta name="author" content="SIT725 Group">
+    <meta property="og:title" content="TradeBiBata">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="basic template for SIT 725 Prac 4">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom Style Sheet-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/items.css">
+
+</head>
+
 <body>
-    <header>
-        <div id="nav-placeholder"></div>
-    </header>
+    <div id="nav-placeholder"></div>
+
     <main>
         <div class="container">
             <div class="row">
@@ -24,12 +45,57 @@
                             </div>
                         </form>
                     </div>
-                    <div id="Privacy policy" class="section scrollspy">
-                        <iframe src="https://www.termsfeed.com/live/ea16a163-e6fd-4ff3-af4e-8de0e744fd70"
-                            title="Private policy"></iframe>
+                    <div>
+                        <div class="center-align">
+                            <a class="waves-effect waves-light btn click-me-button modal-trigger" id="additembtn"
+                                data-target="additem">Check policy</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <a class="waves-effect waves-light btn" id="fileSubmit">Submit</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+
+    <!-- <form enctype="multipart/form-data" id="formtest">
+        <input id="itemName2" type="text" class="" data-length="250">
+    </form> -->
+    <!-- Add item Modal-->
+    <div id="additem" class="modal">
+        <div id="Privacy policy" class="row modal-content section scrollspy">
+            <iframe width="100%" height="350px"
+                src="https://www.termsfeed.com/live/ea16a163-e6fd-4ff3-af4e-8de0e744fd70"
+                title="Private policy"></iframe>
+        </div>
+
+        <div class="row">
+            <div class="col s12 center-align">
+                <a class="waves-effect waves-light btn" id="addItemSubmit">Accept</a>
+                <!-- <button class="waves-effect waves-light btn" type="submit" name="action">Submit -->
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $.get("nav.html", function (data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+    <script src="js/additem.js"></script>
+
 </body>
+
+</html>
