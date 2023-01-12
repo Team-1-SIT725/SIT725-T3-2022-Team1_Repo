@@ -56,32 +56,19 @@
                     </div>
                 </div>
                 <div class="col s12">
-                    <div id="File upload" class="section scrollspy">
-                        <form action="#">
-                            <div class="file-field input-field">
-                                <h5>Upload your file below</h5>
-                                <br>
-                                <div class="col s12 m12">
-                                    <div class="btn">
-                                        <span>File</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    <h5>Upload your file below</h5>
+                    <br>
+                    <input class="hide" type="file" name="photos" id="img-upload" accept=".jpg, .jpeg, .png" multiple>
+                    <label class="btn" for="img-upload">Upload File</label>
                 </div>
                 <div class="col s12">
                     <div id="File submit" class="section scrollsy">
                         <h5>Submit your file below</h5>
                         <br>
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i
-                                class="material-icons right">send</button>
+                        <a class="waves-effect waves-light btn" id="addFileSubmit">submit</a>
                     </div>
                 </div>
+                <!-- <script src="js/adrFile.js"></script> -->
             </div>
         </div>
     </main>
