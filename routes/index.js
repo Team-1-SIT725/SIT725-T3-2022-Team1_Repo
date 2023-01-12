@@ -3,7 +3,7 @@ const express = require("express");
 const accountRoutes = require("./accountRoutes.js");
 const adminRoutes = require("./adminRoutes");
 const itemRoutes = require("./itemRoutes");
-const itemSearchRoutes = require("./itemSearchRoutes");
+const searchRoutes = require("./searchRoutes");
 const messagesRoutes = require("./messagesRoutes");
 const userProfilePrivateRoutes = require("./userProfilePrivateRoutes");
 const userProfilePublicRoutes = require("./userProfilePublicRoutes");
@@ -13,15 +13,10 @@ const router = express.Router();
 router.use("/account", accountRoutes);
 router.use("/admin", adminRoutes);
 router.use("/item", itemRoutes);
-router.use("/itemSearch", itemSearchRoutes);
+router.use("/search", searchRoutes);
 router.use("/message", messagesRoutes);
 router.use("/userProfilePrivate", userProfilePrivateRoutes);
 router.use("/userProfilePublic", userProfilePublicRoutes);
-
-router.post("/", (req, res) => {
-    console.log("Testing if /API works");
-    // controller.itemController.addItem(req, res);
-});
 
 module.exports = router;
 

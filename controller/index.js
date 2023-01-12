@@ -1,9 +1,9 @@
 module.exports = {
-  accountController: require("./accountController"),
-  adminController: require("./adminController"),
-  itemController: require("./itemController"),
-  itemSearchController: require("./itemSearchController"),
-  messagesController: require("./messagesController"),
-  userProfilePrivateController: require("./userProfilePrivateController"),
-  userProfilePublicController: require("./userProfilePublicController"),
+    accountController: require("./accountController"),
+    adminController: require("./adminController"),
+    itemController: require("./itemController"),
+    SearchController: require("./SearchController"),
+    messagesController: require("./messagesController"),
+    userProfilePrivateController: require("./userProfilePrivateController"),
+    userProfilePublicController: require("./userProfilePublicController"),
 };

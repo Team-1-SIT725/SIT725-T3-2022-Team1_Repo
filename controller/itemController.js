@@ -82,8 +82,8 @@ const viewItem = async (req, res) => {
 const itemImage = async (req, res) => {
     try {
         res.sendFile(path.join(__dirname, "../upload/" + req.params.filename));
-    } catch {
-        console.log("Error MSG");
+    } catch (e) {
+        console.log(`Error MSG: ${e.message}`);
         //set error handling
     }
 };
