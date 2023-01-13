@@ -30,18 +30,18 @@
                     <div id="Message header" class="section scrollspy">
                         <h3 class="text-darken-2 center">Personal details</h3>
                     </div>
-                    <div id="Items input" class="section scrollspy">
-                        <form class="col s12 m12 center">
+                    <div id="Itemsinput" class="section scrollspy">
+                        <form class="col s12 m12 center" id="Forminput" name="Forminput">
                             <div class="input-filed col s12 center row">
                                 <label style="font-size: medium;" for="question_1 flow-text">What type of items would
                                     you like to
                                     trade?</label>
-                                <input type="text" id="item description">
+                                <input type="text" id="itemDesc" name="itemDesc">
                             </div>
                             <div class="input-filed col s12 center row">
                                 <label style="font-size: medium;" for="question_2 flow-text">How would you prefer your
                                     exchange to be done?</label>
-                                <input type="text" id="method description">
+                                <input type="text" id="methodDesc" name="methodDesc">
                             </div>
                         </form>
                     </div>
@@ -54,7 +54,7 @@
                     <br>
                     <div class="row">
                         <div class="col s12 center-align">
-                            <a class="waves-effect waves-light btn" id="fileSubmit">Submit</a>
+                            <a class="waves-effect waves-light btn" id="fileSubmitBt" name="fileSubmitBt">Submit</a>
                         </div>
                     </div>
                 </div>
@@ -70,16 +70,18 @@
     <div id="additem" class="modal">
         <div id="Privacy policy" class="row modal-content section scrollspy">
             <iframe width="100%" height="350px"
-                src="https://www.termsfeed.com/live/ea16a163-e6fd-4ff3-af4e-8de0e744fd70"
+                src="https://www.termsfeed.com/live/1fbe7934-4bae-4234-a833-4452519190b7"
                 title="Private policy"></iframe>
         </div>
-
-        <div class="row">
-            <div class="col s12 center-align">
-                <a class="waves-effect waves-light btn" id="addItemSubmit">Accept</a>
-                <!-- <button class="waves-effect waves-light btn" type="submit" name="action">Submit -->
+        <form class="col s12" action="/api/item/add" enctype="multipart/form-data" method="post">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a herf="#!" class="modal-close waves-effect waves-light btn">Disagree</a>
+                    <a herf="#!" class="modal-close waves-effect waves-light btn">Agree</a>
+                    <!-- <a href="createAcc.html" class="waves-effect waves-light btn" id="addItemSubmit">Accept</a>
+                    <button class="waves-effect waves-light btn" type="submit" name="action">Submit -->
+                </div>
             </div>
-        </div>
         </form>
     </div>
     </div>
@@ -94,7 +96,7 @@
             $("#nav-placeholder").replaceWith(data);
         });
     </script>
-    <script src="js/additem.js"></script>
+    <script src="js/createAcc.js"></script>
 
 </body>
 

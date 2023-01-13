@@ -38,40 +38,12 @@ const removeFile = (fileName) => {
     const imgUpload = $("#img-upload");
     const { files } = imgUpload;
 
-    for (let i = 0; i < files.length; i++) {}
+    for (let i = 0; i < files.length; i++) { }
 };
 
 const submitAddItem = () => {
     // let formData = document.querySelector("#addItemForm").form;
     let formData = new FormData(document.querySelector("#addItemForm"));
-
-    // let formData = $("#addItemForm").form;
-    // const formData = new FormData($("#addItemForm").target);
-    // let formData = {};
-    // formData.itemName = $("#itemName").val();
-    // formData.itemCategory = $("#itemCategory").val();
-    // formData.itemCondition = $("#itemCondition").val();
-    // formData.itemDescription = $("#itemDescription").val();
-    // formData.itemSize = $("#itemSize").val();
-    // formData.itemColour = $("#itemColour").val();
-    // formData.itemValue = $("#itemValue").val();
-    // formData.files = $("input#img-upload")[0].files;
-    // formData.encoding = "multipart/form-data";
-    // const files = $("input#img-upload")[0].files;
-    // formData.append = ("itemName", $("#itemName").value);
-    // for (let i = 0; i < files.length; i++) {
-    //     formData.append("files", files[i]);
-    // }
-    // formData.append = ("itemCategory", $("#itemName").val());
-    // formData.append = ("itemCondition", $("#itemCondition").val());
-    // formData.append = ("itemDescription", $("#itemDescription").val());
-    // formData.append = ("itemSize", $("#itemSize").val());
-    // formData.append = ("itemColour", $("#itemColour").val());
-    // formData.append = ("itemValue", $("#itemValue").val());
-    // formData.append = ("files", $("input#img-upload")[0].files);
-
-    // formData.contentType = "multipart/form-data";
-    // form.enctype = "multipart/form-data";
     console.log("Form Data Submitted: ", formData);
     addItemToApp(formData);
 };
