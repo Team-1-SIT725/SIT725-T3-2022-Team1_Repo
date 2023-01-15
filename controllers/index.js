@@ -1,4 +1,5 @@
 module.exports = {
     loginController: require('./loginController'),
-    dashboardController: require('./dashboardController')
+    dashboardController: require('./dashboardController'),
+    userProfilePrivateController: require("./userProfilePrivateController"),
 }
