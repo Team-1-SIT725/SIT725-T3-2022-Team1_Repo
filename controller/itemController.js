@@ -2,19 +2,10 @@ const models = require("../models");
 const item = models.itemModels.item;
 const itemImages = models.itemModels.itemImages;
 const path = require("path");
-// const formidable = require("formidable");
-// const fs = require("fs");
+
 
 const addItem = async (req, res) => {
-    // const form = formidable({ multiples: true });
 
-    // await form.parse(req, (err, fields, files) => {
-    //     if (err) {
-    //         next(err);
-    //         return;
-    //     }
-    //     console.log(fields, files);
-    // });
 
     //Store Variables from req
 

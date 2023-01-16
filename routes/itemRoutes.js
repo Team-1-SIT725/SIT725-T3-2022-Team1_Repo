@@ -31,6 +31,7 @@ router.post(
     upload.array("photos", 12),
     (req, res) => {
         controller.itemController.addItem(req, res);
+        controller.userProfilePrivateController.addItem
     },
     (error, req, res, next) => {
         // fs.unlink("upload\file")
