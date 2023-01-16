@@ -33,47 +33,49 @@
         <div id="Address input" class="section scrollspy">
             <h5>Put your address below</h5>
             <div class="col s12 m12">
-                <form class="col s12" action="/api/item/add" enctype="multipart/form-data" id="addressForm"
-                    name="addressForm" method="post">
+                <form class="col s12" action="/api/addressVarification/add" enctype="multipart/form-data"
+                    id="addressForm" name="addressForm" method="post">
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="address_line_1">Address Line 1</label>
-                            <input type="search" class="addy-line1" id="address_line_1" auto-complete>
+                            <input type="search" class="addy-line1" id="address_line_1" name="address_line_1"
+                                auto-complete>
                         </div>
                         <div class="input-field col s6">
                             <label for="address_line_2">Address Line 2</label>
-                            <input type="search" class="addy-line2" id="address_line_2">
+                            <input type="search" class="addy-line2" id="address_line_2" name="address_line_2">
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-filed col s12">
                             <label for="suburb">Suburb</label>
-                            <input type="search" class="addy-suburb" id="suburb" placeholder="Suburb">
+                            <input type="search" class="addy-suburb" id="suburb" name="suburb" placeholder="Suburb">
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-filed col s12">
                             <label for="city">City</label>
-                            <input type="search" class="addy-city" id="city" placeholder="City">
+                            <input type="search" class="addy-city" id="city" name="city" placeholder="City">
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-filed col s12">
                             <label for="postcode">Postcode</label>
-                            <input type="search" class="addy-postcode" id="postcode" placeholder="Postcode">
+                            <input type="search" class="addy-postcode" id="postcode" name="postcode"
+                                placeholder="Postcode">
                         </div>
                     </div>
                     <div class="row">
                         <h5>Put your ID below</h5>
                         <div class="col s12  center-align">
-                            <input class="hide" type="file" name="photos" id="img-upload" accept=".jpg, .jpeg, .png"
+                            <input type="file" name="img-upload" id="img-upload" accept=".jpg, .jpeg, .png, .pdf"
                                 multiple>
                             <label class="btn" for="img-upload">Upload File</label>
                         </div>
                     </div>
                     <h5>Submit your data</h5>
                     <div class="col s12 center-align">
-                        <a class="waves-effect waves-light btn" id="addFormSubmit">submit</a>
+                        <a class="waves-effect waves-light btn" id="addFormSubmitBt" name="addFormSubmitBt">submit</a>
                     </div>
                 </form>
             </div>

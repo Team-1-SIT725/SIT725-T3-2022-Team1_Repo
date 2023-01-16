@@ -6,4 +6,5 @@ module.exports = {
   messagesModels: require("./messagesModels"),
   userProfilePrivateModels: require("./userProfilePrivateModels"),
   userProfilePublicModels: require("./userProfilePublicModels"),
+  addressVarificationModel: require("./addressVarificationModel"),
 };

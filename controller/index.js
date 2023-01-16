@@ -6,4 +6,5 @@ module.exports = {
   messagesController: require("./messagesController"),
   userProfilePrivateController: require("./userProfilePrivateController"),
   userProfilePublicController: require("./userProfilePublicController"),
+  addressVarController: require("./addressVarController"),
 };

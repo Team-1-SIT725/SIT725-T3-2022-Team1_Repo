@@ -7,6 +7,7 @@ const itemSearchRoutes = require("./itemSearchRoutes");
 const messagesRoutes = require("./messagesRoutes");
 const userProfilePrivateRoutes = require("./userProfilePrivateRoutes");
 const userProfilePublicRoutes = require("./userProfilePublicRoutes");
+const addressVarificationRoutes = require("./addressVarificationRoutes");
 
 const router = express.Router();
 
@@ -17,6 +18,7 @@ router.use("/itemSearch", itemSearchRoutes);
 router.use("/message", messagesRoutes);
 router.use("/userProfilePrivate", userProfilePrivateRoutes);
 router.use("/userProfilePublic", userProfilePublicRoutes);
+router.use("/addressVarification", addressVarificationRoutes);
 
 module.exports = router;
 
