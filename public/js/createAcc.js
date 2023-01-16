@@ -20,9 +20,10 @@ const addItemToApp = (formData) => {
         processData: false,
         contentType: false,
         success: (result) => {
-            alert(result.message);
-            location.reload(); //used to reload the page
-            // window.location = "/template.html";
+
+            // alert(result.message);
+            // location.reload(); //used to reload the page
+         window.location = "/login.html";
         },
     });
 };
