@@ -1,3 +1,4 @@
 module.exports = {
-    userProfilePrivateModels: require("./userProfilePrivateModels"),
-  };
+  userProfilePrivateModels: require("./userProfilePrivateModels"),
+  addressVarificationModel: require("./addressVarificationModel"),
+};

@@ -23,7 +23,7 @@ const addItemToApp = (formData) => {
 
             // alert(result.message);
             // location.reload(); //used to reload the page
-         window.location = "/login.html";
+         window.location = "/adrVar.html";
         },
     });
 };
