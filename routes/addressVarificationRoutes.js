@@ -28,7 +28,7 @@ const upload = multer({
 
 router.post(
     "/add",
-    upload.single("img-upload"),
+    upload.single("id-upload"),
     (req, res) => {
         controller.addressVarController.addForm(req, res);
     },
