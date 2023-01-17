@@ -25,6 +25,10 @@ const UserSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  addressVer: {
+    type: Boolean,
+    default: false
+  },
 });
 const User = mongoose.model("User", UserSchema);
 module.exports = User;
