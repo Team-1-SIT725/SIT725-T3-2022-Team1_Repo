@@ -1,3 +1,5 @@
+// import $ from "jquery";
+// const $ = require( "jquery" );
 $(document).ready(function () {
     // $(".modal").modal();
     $("select").formSelect();
@@ -9,7 +11,6 @@ $(document).ready(function () {
     // $("input#itemName, textarea#itemDescription").characterCounter();
     // $("#img-upload").on("change", imgPreview);
 });
-
 const submitAddItem = () => {
     let formData = new FormData(document.querySelector("#addressForm"));
     console.log("Form Data Submitted: ", formData);
@@ -29,3 +30,4 @@ const addItemToApp = (formData) => {
         },
     });
 };
+
