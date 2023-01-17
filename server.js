@@ -10,11 +10,12 @@ const session = require('express-session');
 dotenv.config();
 const passport = require("passport");
 var cors = require("cors")
-let dbConnect = require("./dbConnect");
+let DBconnect = require("./DBconnect");
+let Routes = require("./routes");
 const { loginCheck } = require("./auth/passport");
 loginCheck(passport);
 
-
+app.use("/api", Routes);
 
 app.use(express.static(__dirname + '/public'))
 app.use(express.json());
@@ -32,6 +33,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 //Routes
+
 app.use("/", require("./routes/login"));
 
 // app.get("/", function (req, res) {
