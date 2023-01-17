@@ -21,10 +21,10 @@ const addForm = async (req, res) => {
         suburb: suburb,
         city: city,
         postcode: postcode,
-        // filePath: req.files.path,
-        // originalFilename: req.files.originalname,
-        // newFilename: req.files.filename,
-        // fileSize: req.files.size,
+        filePath: req.file.path,
+        originalFilename: req.file.originalname,
+        newFilename: req.file.filename,
+        fileSize: req.file.size,
     })
 
     newForm
