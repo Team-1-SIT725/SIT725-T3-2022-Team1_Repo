@@ -10,7 +10,8 @@ const session = require("express-session");
 dotenv.config();
 const passport = require("passport");
 var cors = require("cors");
-let dbConnect = require("./dbConnect");
+let DBconnect = require("./DBconnect");
+let Routes = require("./routes");
 const { loginCheck } = require("./auth/passport");
 loginCheck(passport);
 
@@ -31,7 +32,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 //Routes
+
 app.use("/", require("./routes/login"));
+app.use("/api", Routes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log("Server has started at port " + PORT));

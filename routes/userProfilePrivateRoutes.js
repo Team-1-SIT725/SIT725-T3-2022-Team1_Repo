@@ -28,30 +28,13 @@ const upload = multer({
 
 router.post(
     "/add",
-    upload.array("photos", 12),
+    upload.none(),
     (req, res) => {
-        controller.itemController.addItem(req, res);
+        controller.userProfilePrivateController.addForm(req, res);
     },
     (error, req, res, next) => {
         // fs.unlink("upload\file")
         res.status(400).send({ error: error.message });
     }
 );
-
-router.post("/update", (req, res) => {
-    controller.itemController.addItem(req, res);
-});
-
-router.post("/delete", (req, res) => {
-    controller.itemController.addItem(req, res);
-});
-
-router.get("/view/:itemID/", (req, res) => {
-    controller.itemController.viewItem(req, res);
-});
-
-router.get("/itemimage/:filename/", (req, res) => {
-    controller.itemController.itemImage(req, res);
-});
-
 module.exports = router;

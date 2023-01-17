@@ -1,202 +1,134 @@
-<head>
-
+<!-- <head>
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
-
 <div id="nav-placeholder"></div>
-
 <nav class="black lighten-2">
-
     <div class="nav-wrapper container hide-on-med-and-down">
-
         <a href=# class="brand-logo"><img src="images/TradeBiBata_Logo.svg"></a>
-
         <ul class="right">
-
             <li><a href="#">Home</a></li>
-
             <li><a href="#">Catagories</a></li>
-
             <li><a href="#" class="dropdown-search" data-target="searchdropdown"><i
                         class="material-icons">search</i></a></li>
-
             <li><a href="#" class=""><i class="material-icons">chat</i></a></li>
-
             <li><img class="circle dropdown-account account-logo" data-target="accountdropdown"
                     src="images/AccountPlaceHold.png">
-
             </li>
-
         </ul>
-
         <ul id="accountdropdown" class="dropdown-content">
-
             <li><a href="#!">Account Settings</a></li>
-
             <li><a href="/login.html">Logout</a></li>
-
         </ul>
-
         <form id="searchdropdown" class="dropdown-content">
-
             <div class="input-field">
-
                 <input id="search" type="search" required>
-
                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-
                 <i class="material-icons close-button">close</i>
-
             </div>
-
         </form>
 
-
-
     </div>
-
     <div class="nav-wrapper hide-on-large-only">
-
         <a href="#" class="brand-logo"><img src="images/TradeBiBata_Logo.svg"></a>
-
         <a href="#" data-target="sidenavmenu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
     </div>
-
 </nav>
 
-
-
 <ul class="sidenav" id="sidenavmenu">
-
     <li>
-
         <div class="user-view">
-
             <div class="background">
-
                 <img src="images/sidenavbackgound.png">
-
             </div>
-
             <a href="#user"><img class="circle" src="images/AccountPlaceHold.png"></a>
-
             <a href="#name"><span class="white-text name">User name</span></a>
-
         </div>
-
     </li>
-
     <li>
-
         <div class="input-field">
-
             <i class="material-icons prefix">search</i>
-
             <input id="search" type="search" required>
-
         </div>
-
     </li>
-
     <li><a href="#">Home</a></li>
-
     <li><a href="#" class="">Messages</a></li>
-
     <li><a href="#">Catagories</a></li>
-
     <li>
-
         <div class="divider"></div>
-
     </li>
-
     <li><a href="#">Account Settings</a></li>
-
     <li><a href="/login.html">Logout</a></li>
-
 </ul>
-
-<script src="js/nav.js"></script>
+<script src="js/nav.js"></script> -->
 
 <!doctype html>
-
-
 
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>TradeBiBata Login</title>
-
     <meta name="description" content="basic template for SIT725 Week 5 Practical">
-
     <meta name="author" content="SitePoint">
 
     <meta property="og:title" content="SIT 725 Prac 5">
-
     <meta property="og:type" content="website">
-
     <meta property="og:description" content="basic template for SIT725 Week 5 Practical">
 
-
-
     <!-- Compiled and minified CSS -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Custom Style Sheet-->
-
     <link rel="stylesheet" href="css/styles.css">
-
     <style>
         .center {
-
             display: block;
-
             margin-left: auto;
-
             margin-right: auto;
-
             /* width: 50%;
-
     height: 40%; */
-
         }
 
         .w3-container {
             background-color: rgb(110, 225, 225);
         }
+
         body {
-
             font-family: Arial, Helvetica, sans-serif;
-
             background-color: white;
-
             font-size: 16px;
-
         }
     </style>
 </head>
 
-<div class="container">
+<body>
+    <div id="nav-placeholder"></div>
+   
 
-    <div class="w3-container w3-teal">
+    <div class="container">
+        <div class="w3-container w3-teal">
+            <img
+                src="data:image/png;base64,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">
+            <P>WELCOME BACK!</P>
+            <p id="user_name">Anonymous user 1</p>
+            <br>
+            <p id="location">aus</p>
 
-        <img
-            src="data:image/png;base64,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">
-
-        <P>Test User</P>
-
+        </div>
     </div>
-
-</div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+    <script>
+        $.get("nav.html", function (data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+    <script src="js/profile.js"></script>
+</body>
 
 </html>

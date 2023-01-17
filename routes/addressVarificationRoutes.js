@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "upload/");
+        cb(null, "uploadAdr/");
     },
 
     filename: function (req, file, cb) {
@@ -19,7 +19,7 @@ const upload = multer({
         fileSize: 1000000,
     },
     fileFilter(req, file, cb) {
-        if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
+        if (!file.originalname.match(/\.(png|jpg|jpeg|pdf)$/)) {
             cb(new Error("Please upload an image."));
         }
         cb(undefined, true);
@@ -28,30 +28,25 @@ const upload = multer({
 
 router.post(
     "/add",
-    upload.array("photos", 12),
+    upload.single("img-upload"),
     (req, res) => {
-        controller.itemController.addItem(req, res);
+        controller.addressVarController.addForm(req, res);
     },
     (error, req, res, next) => {
         // fs.unlink("upload\file")
         res.status(400).send({ error: error.message });
     }
 );
-
-router.post("/update", (req, res) => {
-    controller.itemController.addItem(req, res);
-});
-
-router.post("/delete", (req, res) => {
-    controller.itemController.addItem(req, res);
-});
-
-router.get("/view/:itemID/", (req, res) => {
-    controller.itemController.viewItem(req, res);
-});
-
-router.get("/itemimage/:filename/", (req, res) => {
-    controller.itemController.itemImage(req, res);
-});
+// router.post(
+//     "/addressUpload",
+//     upload.single("img-upload"),
+//     (req, res) => {
+//         controller.userProfilePrivateController.addForm(req, res);
+//     },
+//     (error, req, res, next) => {
+//         // fs.unlink("upload\file")
+//         res.status(400).send({ error: error.message });
+//     }
+// );
 
 module.exports = router;
