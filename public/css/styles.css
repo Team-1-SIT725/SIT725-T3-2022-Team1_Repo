@@ -29,7 +29,7 @@ body {
 
 .form-group label {
     
-    font-size: 16px;
+    font-size: 16px;}
 .brand-logo img {
     vertical-align: middle
 }
@@ -37,11 +37,6 @@ body {
 .account-logo  {
     vertical-align: middle;
 }
-
-
-   
-
-  }
 
 .main-body {
     background-color: #e9edf1;
