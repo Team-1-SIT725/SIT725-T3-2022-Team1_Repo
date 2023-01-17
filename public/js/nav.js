@@ -86,7 +86,7 @@ function updateSearch(e) {
 // console.log(ui.item);
 
 function OpenSearch() {
-    $("#search").select();
+    $("#searchTop").select();
 }
 
 $(".dropdown-account").dropdown({

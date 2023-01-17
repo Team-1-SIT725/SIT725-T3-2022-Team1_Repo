@@ -15,9 +15,10 @@
             <li><a href="#!">Account Settings</a></li>
             <li><a href="#!">Logout</a></li>
         </ul>
-        <form id="searchdropdown" class="dropdown-content">
+        <form id="searchdropdown" class="dropdown-content" action="/search.html" method="GET"
+        role="search">
             <div class="input-field">
-                <input id="searchTop" type="search" required>
+                <input id="searchTop" type="search" name="search" required>
                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                 <i class="material-icons close-button">close</i>
             </div>
