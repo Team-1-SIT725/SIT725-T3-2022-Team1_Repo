@@ -6,16 +6,6 @@ const path = require("path");
 // const fs = require("fs");
 
 const addItem = async (req, res) => {
-    // const form = formidable({ multiples: true });
-
-    // await form.parse(req, (err, fields, files) => {
-    //     if (err) {
-    //         next(err);
-    //         return;
-    //     }
-    //     console.log(fields, files);
-    // });
-
     //Store Variables from req
 
     let itemName = req.body.itemName;
@@ -26,6 +16,7 @@ const addItem = async (req, res) => {
     let itemColour = req.body.itemColour;
     let itemValue = req.body.itemValue;
     let itemImagesArray = [];
+    let userID = req.user._id;
 
     //Validate Outputs
 
@@ -49,6 +40,7 @@ const addItem = async (req, res) => {
         itemColour: itemColour,
         itemValue: itemValue,
         itemImages: itemImagesArray,
+        userID: userID,
     });
 
     newItem

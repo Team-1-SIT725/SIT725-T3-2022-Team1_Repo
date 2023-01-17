@@ -58,6 +58,10 @@ const itemSchema = mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    userID: {
+        type: String,
+        require: true,
+    },
     itemImages: [itemImagesSchema],
 });
 
