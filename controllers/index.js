@@ -3,5 +3,4 @@ module.exports = {
     dashboardController: require('./dashboardController'),
     userProfilePrivateController: require("./userProfilePrivateController"),
     addressVarController: require("./addressVarController"),
-    profileController:require("./profileController"),
 }

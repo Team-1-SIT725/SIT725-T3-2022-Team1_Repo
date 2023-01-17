@@ -15,8 +15,7 @@ const {
   router.get("/login", loginView);
   //Dashboard
   router.get("/dashboard", protectRoute, dashboardView);
-
-
+  
   router.post("/register", registerUser);
   router.post("/login", loginUser);
   router.post("/requestPasswordReset", resetPasswordRequestController);

@@ -15,7 +15,7 @@ let Routes = require("./routes");
 const { loginCheck } = require("./auth/passport");
 loginCheck(passport);
 
-
+app.use("/api", Routes);
 
 app.use(express.static(__dirname + '/public'))
 app.use(express.json());
@@ -35,7 +35,6 @@ app.use(passport.session());
 //Routes
 
 app.use("/", require("./routes/login"));
-app.use("/api", Routes);
 
 // app.get("/", function (req, res) {
 //   res.render("index");

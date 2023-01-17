@@ -7,4 +7,3 @@ const dashboardView = (req, res) => {
   module.exports = {
     dashboardView,
   };
-  
