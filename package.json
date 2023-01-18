@@ -45,5 +45,8 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.3"
   }
 }
