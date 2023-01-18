@@ -21,7 +21,7 @@ const mongoose = require('mongoose');
 // module.exports = client;
 
 // Mongo DB conncetion
-const database = ""
+const database = "mongodb+srv://Kachi:prac5@cluster0.udrpgld.mongodb.net/?retryWrites=true&w=majority"
 
 
 mongoose.connect(database, {useUnifiedTopology: true, useNewUrlParser: true })
