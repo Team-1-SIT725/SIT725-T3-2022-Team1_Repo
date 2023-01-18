@@ -56,9 +56,6 @@ const addItemToApp = (formData) => {
     type: "POST",
     processData: false,
     contentType: false,
-    redirectUrl: (result) => {
-      location.reload(result);
-    },
     success: (result) => {
       console.log(result.message);
       location.reload(); //used to reload the page

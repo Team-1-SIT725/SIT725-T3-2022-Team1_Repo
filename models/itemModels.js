@@ -60,7 +60,7 @@ const itemSchema = mongoose.Schema({
   },
   userID: {
     type: String,
-    require: false, //change this to true in a clean DB
+    require: true, //change this to true in a clean DB
   },
   itemImages: [itemImagesSchema],
 });
