@@ -1,65 +1,4 @@
-<!-- <head>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<div id="nav-placeholder"></div>
-<nav class="black lighten-2">
-    <div class="nav-wrapper container hide-on-med-and-down">
-        <a href=# class="brand-logo"><img src="images/TradeBiBata_Logo.svg"></a>
-        <ul class="right">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Catagories</a></li>
-            <li><a href="#" class="dropdown-search" data-target="searchdropdown"><i
-                        class="material-icons">search</i></a></li>
-            <li><a href="#" class=""><i class="material-icons">chat</i></a></li>
-            <li><img class="circle dropdown-account account-logo" data-target="accountdropdown"
-                    src="images/AccountPlaceHold.png">
-            </li>
-        </ul>
-        <ul id="accountdropdown" class="dropdown-content">
-            <li><a href="#!">Account Settings</a></li>
-            <li><a href="/login.html">Logout</a></li>
-        </ul>
-        <form id="searchdropdown" class="dropdown-content">
-            <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons close-button">close</i>
-            </div>
-        </form>
 
-    </div>
-    <div class="nav-wrapper hide-on-large-only">
-        <a href="#" class="brand-logo"><img src="images/TradeBiBata_Logo.svg"></a>
-        <a href="#" data-target="sidenavmenu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-</nav>
-
-<ul class="sidenav" id="sidenavmenu">
-    <li>
-        <div class="user-view">
-            <div class="background">
-                <img src="images/sidenavbackgound.png">
-            </div>
-            <a href="#user"><img class="circle" src="images/AccountPlaceHold.png"></a>
-            <a href="#name"><span class="white-text name">User name</span></a>
-        </div>
-    </li>
-    <li>
-        <div class="input-field">
-            <i class="material-icons prefix">search</i>
-            <input id="search" type="search" required>
-        </div>
-    </li>
-    <li><a href="#">Home</a></li>
-    <li><a href="#" class="">Messages</a></li>
-    <li><a href="#">Catagories</a></li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li><a href="#">Account Settings</a></li>
-    <li><a href="/login.html">Logout</a></li>
-</ul>
-<script src="js/nav.js"></script> -->
 
 <!doctype html>
 
@@ -118,8 +57,105 @@
             <h5 id="user_name">Anonymous user 1</h5>
             <h5 id="location">aus</h5>
 
+        
+        <div>
+            <div class="right-align">
+                <a class="waves-effect waves-light btn click-me-button modal-trigger" id="additembtn"
+                    data-target="additem"><i class="material-icons left">add</i>Add Item</a>
+            </div>
+        </div>
+    
+        <!-- <form enctype="multipart/form-data" id="formtest">
+            <input id="itemName2" type="text" class="" data-length="250">
+        </form> -->
+        <!-- Add item Modal-->
+        <div id="additem" class="modal">
+            <div class="row modal-content">
+                <form class="col s12" action="/api/item/add" enctype="multipart/form-data" id="addItemForm" method="post">
+                    <!-- <form class="col s12"> -->
+                    <div class="row">
+                        <div class="row">
+                            <div class="col s8 offset-s2 center-align">
+                                <div class="" id="img-preview"></div>
+                            </div>
+                            <div class="col s2 right-align">
+                                <a class="modal-close" id="formClose"><i class="material-icons">close</i></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 center-align">
+                                <input class="hide" type="file" name="photos" id="img-upload" accept=".jpg, .jpeg, .png"
+                                    multiple>
+                                <label class="btn" for="img-upload">Upload Image</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="itemName" name="itemName" type="text" class="" data-length="250">
+                            <label for="itemName">Item Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <select name="itemCategory" id="itemCategory">
+                                <option value="" disabled selected>Select Item Category</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Category</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <select name="itemCondition" id="itemCondition">
+                                <option value="" disabled selected>Select Condition</option>
+                                <option value="New">New</option>
+                                <option value="Like New">Like New</option>
+                                <option value="Light Use">Light Use</option>
+                                <option value="Used">Used</option>
+                            </select>
+                            <label>Item Condition</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="itemDescription" name="itemDescription"
+                                class="validate materialize-textarea"></textarea>
+                            <label for="itemDescription">Description</label>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <h6>Optional</h6>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="itemSize" name="itemSize" type="text" class="validate">
+                            <label for="itemSize">Item Size</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="itemColour" name="itemColour" type="text" class="validate">
+                            <label for="itemColour">Item Colour</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="itemValue" name="itemValue" type="text" class="validate">
+                            <label for="itemValue">Approx. Item value</label>
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a class="waves-effect waves-light btn" id="addItemSubmit">submit</a>
+                    <!-- <button class="waves-effect waves-light btn" type="submit" name="action">Submit -->
+                </div>
+            </div>
+            </form>
+        </div>
         </div>
     </div>
+</div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
@@ -131,6 +167,7 @@
     </script>
    
     <script src="js/nav.js"></script>
+    <script src="js/additem.js"></script>
 </body>
 
 </html>
