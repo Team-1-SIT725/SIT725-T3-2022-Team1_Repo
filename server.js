@@ -14,12 +14,35 @@ let DBconnect = require("./DBconnect");
 let Routes = require("./routes");
 const { loginCheck } = require("./auth/passport");
 loginCheck(passport);
+// const createServer = require("http").createServer;
+// import { createServer } from "http";
+// const {Server} = require("socket.io");
+// import { Server } from "socket.io";
+// import { fileURLToPath } from "url";
+// import { dirname } from "path";
+// import onSocket from "./socket.js";
+
+const http = require("http");
+const httpserver = http.createServer(app);
+const {Server} = require("socket.io");
+const io = new Server(httpserver);
+
+const {onSocket} = require("./socket");
 
 
+app.get("/", (req, res) => {
+	res.sendFile(__dirname + "/public/index.html");
+});
 
 app.use(express.static(__dirname + '/public'))
 app.use(express.json());
 app.use(cors())
+
+// const httpServer = createServer(app);
+
+onSocket(io)
+
+
 
 //BodyParsing
 app.use(express.urlencoded({ extended: false }));
@@ -43,7 +66,7 @@ app.use("/api", Routes);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, console.log("Server has started at port " + PORT));
+httpserver.listen(PORT, console.log("Server has started at port " + PORT));
 
 // var express = require("express")
 // var app = express()
