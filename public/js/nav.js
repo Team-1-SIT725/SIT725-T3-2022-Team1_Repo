@@ -1,23 +1,23 @@
 $(document).ready(function () {
     $(".sidenav").sidenav();
-  });
-  
-  function OpenSearch() {
+});
+
+function OpenSearch() {
     $("#search").select();
-  }
-  
-  $(".dropdown-account").dropdown({
+}
+
+$(".dropdown-account").dropdown({
     constrainWidth: false,
     coverTrigger: false,
-  });
-  $(".dropdown-search").dropdown({
+});
+$(".dropdown-search").dropdown({
     constrainWidth: false,
     coverTrigger: false,
     closeOnClick: false,
     alignment: "right",
     onOpenEnd: OpenSearch,
-  });
-  
-  $(".close-button").click(() => {
+});
+
+$(".close-button").click(() => {
     $(".dropdown-search").dropdown("close");
-  });
+});

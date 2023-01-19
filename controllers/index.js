@@ -4,4 +4,5 @@ module.exports = {
     userProfilePrivateController: require("./userProfilePrivateController"),
     addressVarController: require("./addressVarController"),
     profileController:require("./profileController"),
+    itemController:require("./itemController"),
 }

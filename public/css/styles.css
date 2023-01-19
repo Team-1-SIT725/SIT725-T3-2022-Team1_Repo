@@ -29,9 +29,14 @@ body {
 
 .form-group label {
     
-    font-size: 16px;
-   
-  }
+    font-size: 16px;}
+.brand-logo img {
+    vertical-align: middle
+}
+
+.account-logo  {
+    vertical-align: middle;
+}
 
 .main-body {
     background-color: #e9edf1;
@@ -47,10 +52,3 @@ body {
     margin-top: 50px;
 }
 
-.brand-logo img {
-    vertical-align: middle
-}
-
-.account-logo  {
-    vertical-align: middle;
-}

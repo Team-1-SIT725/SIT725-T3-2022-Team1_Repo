@@ -8,6 +8,8 @@ $(document).ready(function () {
     // $("#addItemSubmit").click(submitForm);
     $("input#itemName, textarea#itemDescription").characterCounter();
     $("#img-upload").on("change", imgPreview);
+
+    $("#additembtn").floatingActionButton();
 });
 
 //This Function creates the preview images for the addItem upload.
@@ -38,12 +40,12 @@ const removeFile = (fileName) => {
     const imgUpload = $("#img-upload");
     const { files } = imgUpload;
 
-    for (let i = 0; i < files.length; i++) { }
+    for (let i = 0; i < files.length; i++) {}
 };
 
 const submitAddItem = () => {
-    // let formData = document.querySelector("#addItemForm").form;
     let formData = new FormData(document.querySelector("#addItemForm"));
+
     console.log("Form Data Submitted: ", formData);
     addItemToApp(formData);
 };
@@ -57,9 +59,12 @@ const addItemToApp = (formData) => {
         processData: false,
         contentType: false,
         success: (result) => {
-            alert(result.message);
+            console.log(result.message);
             location.reload(); //used to reload the page
             // window.location = "/template.html";
+        },
+        error: (err) => {
+            console.log(err.message);
         },
     });
 };
