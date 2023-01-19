@@ -1,17 +1,17 @@
 var express = require("express");
 var router = express.Router();
-let controller = require("../controller");
+let controllers = require("../controllers");
 
 router.get("/", (req, res) => {
-    controller.SearchController.search(req, res);
+  controllers.SearchController.search(req, res);
 });
 
 router.get("/item", (req, res) => {
-    controller.SearchController.searchItems(req, res);
+  controllers.SearchController.searchItems(req, res);
 });
 
 router.get("/user", (req, res) => {
-    controller.SearchController.searchUser(req, res);
+  controllers.SearchController.searchUser(req, res);
 });
 
 module.exports = router;

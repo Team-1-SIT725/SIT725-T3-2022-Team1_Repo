@@ -5,4 +5,5 @@ module.exports = {
     addressVarController: require("./addressVarController"),
     profileController:require("./profileController"),
     itemController:require("./itemController"),
+    SearchController: require("./SearchController"),
 }

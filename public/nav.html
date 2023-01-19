@@ -1,40 +1,46 @@
 <head>
-    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/nav.css" />
     <script src="js/profile.js"></script>
 </head>
 <div id="nav-placeholder"></div>
 <nav class="black lighten-2">
     <div class="nav-wrapper container hide-on-med-and-down">
-        <a href=# class="brand-logo"><img src="images/TradeBiBata_Logo.svg"></a>
+        <a href="profile.html" class="brand-logo"><img src="images/TradeBiBata_Logo.svg" /></a>
         <ul class="right">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Catagories</a></li>
-            <li><a href="#" class="dropdown-search" data-target="searchdropdown"><i
-                        class="material-icons">search</i></a></li>
-            <li><a href="#" class=""><i class="material-icons">chat</i></a></li>
+            <li><a href="profile.html">Home</a></li>
+            <!-- <li><a href="#">Catagories</a></li> -->
+            <li>
+                <a href="#" class="dropdown-search" data-target="searchdropdown"><i
+                        class="material-icons">search</i></a>
+            </li>
+            <li>
+                <a href="#" class=""><i class="material-icons">chat</i></a>
+            </li>
             <!-- <li><img class="circle dropdown-account account-logo" data-target="accountdropdown"
                     src="images/AccountPlaceHold.png"> 
             </li> -->
-            <li><button><p class="circle dropdown-account account-logo" data-target="accountdropdown"
-                id="user_nav">Anonymous user</p></button> 
+            <li>
+                <button>
+                    <p class="circle dropdown-account account-logo" data-target="accountdropdown" id="user_nav">
+                        Anonymous user
+                    </p>
+                </button>
             </li>
         </ul>
         <ul id="accountdropdown" class="dropdown-content">
-            <li><a href="#!">Account Settings</a></li>
+            <!-- <li><a href="#!">Account Settings</a></li> -->
             <li><a href="/login.html">Logout</a></li>
         </ul>
-        <form id="searchdropdown" class="dropdown-content" action="/search.html" method="GET"
-        role="search">
+        <form id="searchdropdown" class="dropdown-content" action="/search.html" method="GET" role="search">
             <div class="input-field">
-                <input id="searchTop" type="search" name="search" required>
+                <input id="searchTop" type="search" name="search" required />
                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                 <i class="material-icons close-button">close</i>
             </div>
         </form>
-
     </div>
     <div class="nav-wrapper hide-on-large-only">
-        <a href="#" class="brand-logo"><img src="images/TradeBiBata_Logo.svg"></a>
+        <a href="#" class="brand-logo"><img src="images/TradeBiBata_Logo.svg" /></a>
         <a href="#" data-target="sidenavmenu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
 </nav>
@@ -43,25 +49,25 @@
     <li>
         <div class="user-view">
             <div class="background">
-                <img src="images/sidenavbackgound.png">
+                <img src="images/sidenavbackgound.png" />
             </div>
-            <a href="#user"><img class="circle" src="images/AccountPlaceHold.png"></a>
+            <a href="#user"><img class="circle" src="images/AccountPlaceHold.png" /></a>
             <a href="#name"><span class="white-text name">User name</span></a>
         </div>
     </li>
     <li>
         <div class="input-field">
             <i class="material-icons prefix">search</i>
-            <input class="autocomplete" id="searchSide" type="search" required>
+            <input class="" id="searchSide" type="search" name="search" required />
         </div>
     </li>
-    <li><a href="#">Home</a></li>
+    <li><a href="profile.html">Home</a></li>
     <li><a href="#" class="">Messages</a></li>
-    <li><a href="#">Catagories</a></li>
+    <!-- <li><a href="#">Catagories</a></li> -->
     <li>
         <div class="divider"></div>
     </li>
-    <li><a href="#">Account Settings</a></li>
+    <!-- <li><a href="#">Account Settings</a></li> -->
     <li><a href="/login.html">Logout</a></li>
 </ul>
 <script src="js/nav.js"></script>
