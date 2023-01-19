@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TradeBiBata</title>
+    <meta name="description" content="TradeBiBata Web Application">
+    <meta name="author" content="SIT725 Group">
+    <meta property="og:title" content="TradeBiBata">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="basic template for SIT 725 Prac 4">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom Style Sheet-->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="container">
+        <div id="Message header" class="section scrollspy">
+            <h3 class="green-text text-darken-2">Note:</h3>
+            <p class="flow-text">To utilize the full functionality of this application, kindly upload a
+                vaild
+                document showing your
+                current address, which will be validated by a TradeBiBata admin within 24 hours.
+            </p>
+        </div>
+        <div id="Address input" class="section scrollspy">
+            <h5>Put your address below</h5>
+            <div class="col s12 m12">
+                <form class="col s12" action="/api/addressVarification/add" enctype="multipart/form-data"
+                    id="addressForm" name="addressForm" method="post">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="address_line_1">Address Line 1</label>
+                            <input type="search" class="addy-line1" id="address_line_1" name="address_line_1"
+                                auto-complete>
+                        </div>
+                        <div class="input-field col s6">
+                            <label for="address_line_2">Address Line 2</label>
+                            <input type="search" class="addy-line2" id="address_line_2" name="address_line_2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-filed col s12">
+                            <label for="suburb">Suburb</label>
+                            <input type="search" class="addy-suburb" id="suburb" name="suburb" placeholder="Suburb">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-filed col s12">
+                            <label for="city">City</label>
+                            <input type="search" class="addy-city" id="city" name="city" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-filed col s12">
+                            <label for="postcode">Postcode</label>
+                            <input type="search" class="addy-postcode" id="postcode" name="postcode"
+                                placeholder="Postcode">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5>Put your ID below</h5>
+                        <div class="col s12  center-align">
+                            <input type="file" name="img-upload" id="img-upload" accept=".jpg, .jpeg, .png, .pdf"
+                                multiple>
+                            <label class="btn" for="img-upload">Upload File</label>
+                        </div>
+                    </div>
+                    <h5>Submit your data</h5>
+                    <div class="col s12 center-align">
+                        <a class="waves-effect waves-light btn" id="addFormSubmitBt" name="addFormSubmitBt">submit</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script
+        src="https://www.addysolutions.com/address-lookup/1.6.2/js/addy.min.js?auKey=b11be4cf19ee4a26960594e801d44a31&country=au&loadcss=true"
+        async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/adrVar.js"></script>
+    <script>
+        $.get("nav.html", function (data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+</body>

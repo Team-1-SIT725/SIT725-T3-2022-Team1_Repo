@@ -1,16 +1,33 @@
 $(document).ready(function () {
     $(".modal").modal();
     $("select").formSelect();
-    $(".collapsible").collapsible();
-    $("#addItemSubmit").click(() => {
+    // $(".collapsible").collapsible();
+    $("#fileSubmitBt").click(() => {
         submitAddItem();
     });
     // $("#addItemSubmit").click(submitForm);
-    $("input#itemName, textarea#itemDescription").characterCounter();
-    $("#img-upload").on("change", imgPreview);
-
-    $("#additembtn").floatingActionButton();
+    // $("input#itemName, textarea#itemDescription").characterCounter();
+    // $("#img-upload").on("change", imgPreview);
 });
+
+
+//ajax
+const addItemToApp = (formData) => {
+    $.ajax({
+        url: "/api/userProfilePrivate/add",
+        data: formData,
+        type: "POST",
+        processData: false,
+        contentType: false,
+        success: (result) => {
+
+            // alert(result.message);
+            // location.reload(); //used to reload the page
+         window.location = "/adrVar.html";
+        },
+    });
+};
+
 
 //This Function creates the preview images for the addItem upload.
 function imgPreview(e) {
@@ -40,31 +57,11 @@ const removeFile = (fileName) => {
     const imgUpload = $("#img-upload");
     const { files } = imgUpload;
 
-    for (let i = 0; i < files.length; i++) {}
+    for (let i = 0; i < files.length; i++) { }
 };
 
 const submitAddItem = () => {
-    let formData = new FormData(document.querySelector("#addItemForm"));
-
+    let formData = new FormData(document.querySelector("#Forminput"));
     console.log("Form Data Submitted: ", formData);
     addItemToApp(formData);
-};
-
-//ajax
-const addItemToApp = (formData) => {
-    $.ajax({
-        url: "/api/item/add",
-        data: formData,
-        type: "POST",
-        processData: false,
-        contentType: false,
-        success: (result) => {
-            console.log(result.message);
-            location.reload(); //used to reload the page
-            // window.location = "/template.html";
-        },
-        error: (err) => {
-            console.log(err.message);
-        },
-    });
 };

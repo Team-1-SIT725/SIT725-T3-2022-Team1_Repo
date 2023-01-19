@@ -5,16 +5,15 @@ let uri;
 
 //Check if we are in prod or dev
 if (process.env.NODE_ENV === "development") {
-  uri = process.env.MONGO_URI_DEV;
+    uri = process.env.MONGO_URI_DEV;
 }
 
 if (process.env.NODE_ENV === "production") {
-  uri = process.env.MONGO_URI_PROD;
+    uri = process.env.MONGO_URI_PROD;
 }
 
-main().catch((err) => console.log(err));
-
-async function main() {
-  await mongoose.connect(uri);
-  console.log("MongoDB Connected Successfully!");
-}
+// Mongo DB conncetion
+mongoose
+    .connect(uri, { useUnifiedTopology: true, useNewUrlParser: true })
+    .then(() => console.log("MongoDB Connected Successfully!"))
+    .catch((err) => console.log(err));

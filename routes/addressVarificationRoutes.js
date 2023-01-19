@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "upload/");
+        cb(null, "uploadAdr/");
     },
 
     filename: function (req, file, cb) {
@@ -19,7 +19,7 @@ const upload = multer({
         fileSize: 1000000,
     },
     fileFilter(req, file, cb) {
-        if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
+        if (!file.originalname.match(/\.(png|jpg|jpeg|pdf)$/)) {
             cb(new Error("Please upload an image."));
         }
         cb(undefined, true);
@@ -28,13 +28,25 @@ const upload = multer({
 
 router.post(
     "/add",
-    upload.none(),
+    upload.single("img-upload"),
     (req, res) => {
-        controller.userProfilePrivateController.addForm(req, res);
+        controller.addressVarController.addForm(req, res);
     },
     (error, req, res, next) => {
         // fs.unlink("upload\file")
         res.status(400).send({ error: error.message });
     }
 );
+// router.post(
+//     "/addressUpload",
+//     upload.single("img-upload"),
+//     (req, res) => {
+//         controller.userProfilePrivateController.addForm(req, res);
+//     },
+//     (error, req, res, next) => {
+//         // fs.unlink("upload\file")
+//         res.status(400).send({ error: error.message });
+//     }
+// );
+
 module.exports = router;
