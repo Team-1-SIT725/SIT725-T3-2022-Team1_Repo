@@ -61,8 +61,8 @@ const addItemToApp = (formData) => {
         contentType: false,
         success: (result) => {
             console.log(result.message);
+            location.reload(); //used to reload the page
             displayResults(result.data);
-            //location.reload(); //used to reload the page
             // window.location = "/template.html";
         },
         error: (err) => {
