@@ -55,18 +55,23 @@
 
             <h5 id="user_name">Anonymous user 1</h5>
             <h5 id="location">aus</h5>
+            <!-- 
+            <a class="red btn-floating  btn-large click-me-button modal-trigger right-align" id="additembtn"
+                data-target="additem"><i class="material-icons left">add</i>Add Item</a> -->
 
-            <!-- <form enctype="multipart/form-data" id="formtest">
-            <input id="itemName2" type="text" class="" data-length="250">
-        </form> -->
-            <!-- Add item Modal-->
-        </div>
-        <div class="right">
+            <!-- <div class="right"> -->
             <!-- <div class="right-align"> -->
-            <a class="red btn-floating  btn-large click-me-button modal-trigger" id="additembtn"
-                data-target="additem"><i class="material-icons left">add</i>Add Item</a>
+            <!-- <a class="red btn-floating  btn-large click-me-button modal-trigger right-align" id="additembtn"
+                    data-target="additem"><i class="material-icons left">add</i>Add Item</a> -->
             <!-- </div> -->
+            <!-- </div> -->
+
         </div>
+        <div class="container center-align">
+            <a class="red btn-large click-me-button modal-trigger right-align" id="additembtn"
+                data-target="additem"><i class="material-icons left">add</i>Add Item</a>
+        </div>
+        <br>
         <div id="additem" class="modal">
             <div class="row modal-content">
                 <form class="col s12" action="/api/item/add" enctype="multipart/form-data" id="addItemForm"
@@ -152,6 +157,7 @@
             </div>
             </form>
         </div>
+        <div id="display-item"></div>
     </div>
     </div>
 
