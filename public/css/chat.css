@@ -1,4 +1,4 @@
-.container {
+/* .container {
 	width: 100vw;
 	height: 100vh;
 	position: absolute;
@@ -7,10 +7,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
+} */
 
 .messages_container {
-	width: 600px;
+	width: auto;
 	height: 500px;
 	position: relative;
 	border: 2px solid #075e54;
