@@ -44,7 +44,7 @@ const itemSchema = mongoose.Schema({
     itemAvailability: {
         type: String,
         enum: {
-            values: ["Available", "Unavailable", "Hide"],
+            values: ["Available", "Unavailable", "Hidden"],
             message: "{VALUE} is not a valid choice",
         },
     },

@@ -137,14 +137,21 @@ const deleteItem = async (req, res) => {
     }
 };
 
-const updateAvailability = async () => {
+const updateAvailability = async (req, res) => {
     const status = req.params.status;
-
-    await User.updateOne(
-        { _id: userId },
-        { $set: { password: hash } },
-        { new: true }
-    );
+    const itemID = req.params.itemID;
+    try {
+        await item.updateOne(
+            { _id: itemID },
+            { $set: { itemAvailability: status } }
+        );
+        res.json({
+            statusCode: 200,
+            message: `Item status changed to ${status}`,
+        });
+    } catch (err) {
+        return res.json({ statusCode: 400, message: err });
+    }
 };
 
 module.exports = {

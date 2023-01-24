@@ -1,8 +1,10 @@
 $(document).ready(function () {
     getItem();
     $(".modal").modal();
+    $("select").formSelect();
 });
 
+//query DB and get item based on ID in URL
 function getItem() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -23,6 +25,7 @@ function getItem() {
 }
 
 const loadItem = (item) => {
+    //html to dynamically load item
     let html = `<div class="row">
     <div class="carousel carousel-slider align-center" data-indicators="true">`;
     item.itemImages.forEach((element) => {
@@ -40,7 +43,7 @@ const loadItem = (item) => {
     if (item.itemAvailability === "Available") {
         html += `<div class="btn  green darken-1" id="availabilityFlag">Available</div>`;
     } else {
-        html += `<div class="btn disabled">Unavailable</div>`;
+        html += `<div class="btn disabled">${item.itemAvailability}</div>`;
     }
 
     html += `<a class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons" href="#">message</i></a>
@@ -73,9 +76,16 @@ const loadItem = (item) => {
 
     document.getElementById("loadedItem").innerHTML = html;
 
+    //show user controls if current user owns item
     if (item.sameUser) {
-        $("#deleteBtn").css("visibility", "visible");
+        $(".user-buttons").css("visibility", "visible");
     }
+    //Set Update availability drop down to current value in DB ************** Come back an look at this only updating once you click on it.
+    $(`#itemAvailability option[value=${item.itemAvailability}]`).attr(
+        "selected",
+        "selected"
+    );
+    //Initialise image carousel and config
     $(".carousel").carousel({
         fullWidth: false,
         indicators: true,
@@ -129,3 +139,19 @@ function countDown() {
         window.setTimeout("countDown()", 1000);
     }
 }
+
+const updateAvailability = () => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const itemID = urlParams.get("itemID");
+    const status = $(`#itemAvailability`).val();
+    const url = "/api/item/updateavailability/" + itemID + "/" + status;
+    $.post(url, (response) => {
+        if (response.statusCode === 200) {
+            console.log(response);
+            location.reload();
+        } else {
+            console.log(response);
+        }
+    });
+};

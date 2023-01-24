@@ -41,9 +41,9 @@ router.post(
         res.status(400).send({ error: error.message });
     }
 );
-availability;
-router.post("/updateavailability/:status/", (req, res) => {
-    // controllers.itemController.addItem(req, res);
+
+router.post("/updateavailability/:itemID/:status/", (req, res) => {
+    controllers.itemController.updateAvailability(req, res);
 });
 
 router.post("/delete/:itemID/", (req, res) => {
