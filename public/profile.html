@@ -68,8 +68,8 @@
 
         </div>
         <div class="container center-align">
-            <a class="red btn-large click-me-button modal-trigger right-align" id="additembtn"
-                data-target="additem"><i class="material-icons left">add</i>Add Item</a>
+            <a class="red btn-large click-me-button modal-trigger right-align" id="additembtn" data-target="additem"><i
+                    class="material-icons left">add</i>Add Item</a>
         </div>
         <br>
         <div id="additem" class="modal">
@@ -94,68 +94,73 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="itemName" name="itemName" type="text" class="" data-length="250">
-                            <label for="itemName">Item Name</label>
-                        </div>
+
+                    <div class="input-field col s12">
+                        <input id="itemName" name="itemName" type="text" class="" data-length="250">
+                        <label for="itemName">Item Name</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12 m6">
-                            <select name="itemCategory" id="itemCategory">
-                                <option value="" disabled selected>Select Item Category</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                            <label>Category</label>
-                        </div>
-                        <div class="input-field col s12 m6">
-                            <select name="itemCondition" id="itemCondition">
-                                <option value="" disabled selected>Select Condition</option>
-                                <option value="New">New</option>
-                                <option value="Like New">Like New</option>
-                                <option value="Light Use">Light Use</option>
-                                <option value="Used">Used</option>
-                            </select>
-                            <label>Item Condition</label>
-                        </div>
+
+                    <div class="input-field col s12 m6">
+                        <select name="itemCategory" id="itemCategory">
+                            <option value="" disabled selected>Select Item Category</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Category</label>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="itemDescription" name="itemDescription"
-                                class="validate materialize-textarea"></textarea>
-                            <label for="itemDescription">Description</label>
-                        </div>
+                    <div class="input-field col s12 m6">
+                        <select name="itemCondition" id="itemCondition">
+                            <option value="" disabled selected>Select Condition</option>
+                            <option value="New">New</option>
+                            <option value="Like New">Like New</option>
+                            <option value="Light Use">Light Use</option>
+                            <option value="Used">Used</option>
+                        </select>
+                        <label>Item Condition</label>
                     </div>
+
+                    <div class="input-field col s12">
+                        <textarea id="itemDescription" name="itemDescription"
+                            class="validate materialize-textarea"></textarea>
+                        <label for="itemDescription">Description</label>
+                    </div>
+
                     <div class="divider"></div>
                     <h6>Optional</h6>
+
+                    <div class="input-field col s12">
+                        <input id="itemSize" name="itemSize" type="text" class="validate">
+                        <label for="itemSize">Item Size</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="itemColour" name="itemColour" type="text" class="validate">
+                        <label for="itemColour">Item Colour</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input id="itemValue" name="itemValue" type="text" class="validate">
+                        <label for="itemValue">Approx. Item value</label>
+                    </div>
+
+                    <div class="input-field col s12 ">
+                        <select name="itemAvailability" id="itemAvailability">
+                            <option value="Available" selected>Available</option>
+                            <option value="Unavailable">Unavailable</option>
+                            <option value="Hide">Hide</option>
+                        </select>
+                        <label>Availability</label>
+                    </div>
+
                     <div class="row">
-                        <div class="input-field col s12">
-                            <input id="itemSize" name="itemSize" type="text" class="validate">
-                            <label for="itemSize">Item Size</label>
+                        <div class="col s12 center-align">
+                            <a class="waves-effect waves-light btn" id="addItemSubmit">submit</a>
+                            <!-- <button class="waves-effect waves-light btn" type="submit" name="action">Submit -->
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="itemColour" name="itemColour" type="text" class="validate">
-                            <label for="itemColour">Item Colour</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="itemValue" name="itemValue" type="text" class="validate">
-                            <label for="itemValue">Approx. Item value</label>
-                        </div>
-                    </div>
+                </form>
             </div>
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a class="waves-effect waves-light btn" id="addItemSubmit">submit</a>
-                    <!-- <button class="waves-effect waves-light btn" type="submit" name="action">Submit -->
-                </div>
-            </div>
-            </form>
         </div>
         <div id="display-item"></div>
     </div>

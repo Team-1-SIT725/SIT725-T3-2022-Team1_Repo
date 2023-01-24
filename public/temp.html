@@ -43,3 +43,59 @@
 
 
 </html>
+
+
+html +=`
+<h4 class="text-bold h4">${item.itemName}</h4>
+<p><b>Posted by: </b> <a href="/profile.html?UserID=${item.userID}">${item.postingUserName}</a></p>
+<p><b>Condition: </b>${item.itemCondition}</p>
+<p><b>Description: </b> <br> ${item.itemDescription}</p>
+<p><b>Category: </b>${item.itemCategory}</p>
+`;
+
+if (item.itemColour != "") {
+html += `<p><b>Colour: </b>${item.itemColour}</p>`;
+}
+if (item.itemSize != "") {
+html += `<p><b>Size:"</b>${item.itemSize}</p>`;
+}
+
+html += `</div>`;
+
+<div class="row">
+    <div class="col s12 m7">
+        <div class="card">
+            <span class="card-title">${item.itemName}</span>
+            <div class="card-content">
+                <p><b>Posted by: </b> <a href="/profile.html?UserID=${item.userID}">${item.postingUserName}</a></p>
+                <p><b>Condition: </b>${item.itemCondition}</p>
+                <p><b>Description: </b> <br> ${item.itemDescription}</p>
+                <p><b>Category: </b>${item.itemCategory}</p>
+
+
+                if (item.itemColour != "") {
+                html += `<p><b>Colour: </b>${item.itemColour}</p>`;
+                }
+                if (item.itemSize != "") {
+                html += `<p><b>Size:"</b>${item.itemSize}</p>`;
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <span class="card-title">${item.itemName}</span>
+    <div class="card-content">
+        <div class="row">
+            <div class="col s12"><b>Posted by: </b> <a
+                    href="/profile.html?UserID=${item.userID}">${item.postingUserName}</a></div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6"><b>Condition: </b>${item.itemCondition}</div>
+            <div class="col s12 m6"><b>Category: </b>${item.itemCategory}</div>
+        </div>
+        <div class="row">
+            <div class="col s12"><b>Description: </b> <br> ${item.itemDescription}</div>
+        </div>
