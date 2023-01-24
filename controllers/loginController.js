@@ -1,6 +1,7 @@
 const passport = require("passport");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
+const alert = require('alert');
 
 //For Register Page
 const registerView = (req, res) => {
@@ -20,17 +21,19 @@ const registerUser = (req, res) => {
 
   if (password !== confirm) {
     console.log("Password must match");
+    alert("Passwords do not match!");
   } else {
     //Validation
     User.findOne({ email: email }).then((user) => {
       if (user) {
         console.log("email exists");
-        res.render("register", {
-          name,
-          email,
-          password,
-          confirm,
-        });
+        alert("Email already exists!");
+        // res.render("register", {
+        //   name,
+        //   email,
+        //   password,
+        //   confirm,
+        // });
       } else {
         //Validation
         const newUser = new User({
@@ -73,13 +76,17 @@ const loginUser = (req, res) => {
       email,
       password,
     });
-  } else {
+    
+  } 
+  
+  else {
     passport.authenticate("local", {
       successRedirect: "/profile.html",
       failureRedirect: "/login.html",
       failureFlash: true,
     })(req, res);
   }
+  
 };
 
 module.exports = {

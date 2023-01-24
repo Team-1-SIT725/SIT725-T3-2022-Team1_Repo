@@ -1,5 +1,7 @@
+const alert = require("alert");
 const bcrypt = require("bcryptjs");
 LocalStrategy = require("passport-local").Strategy;
+
 
 //Load model
 
@@ -14,7 +16,7 @@ const loginCheck = passport => {
         .then((user) => {
           if (!user) {
             console.log("wrong email");
-            // alert("no user found with this email");
+            alert("no user found with this email");
             return done();
           }
 
@@ -26,7 +28,7 @@ const loginCheck = passport => {
               return done(null, user);
             } else {
               console.log("Wrong password");
-              // alert("incorrect password");
+              alert("incorrect password");
               return done();
             }
           });
