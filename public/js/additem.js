@@ -71,7 +71,6 @@ const addItemToApp = (formData) => {
     });
 };
 
-
 ////--------------------------//
 
 const displayResults = (data) => {
@@ -95,7 +94,7 @@ const displayResults = (data) => {
 const displayCard = (item) => {
     let html = `
    		<div class="col s12 m4">
-      		<div class="card small">
+      		<div class="card small hoverable">
         		<div class="card-image">`;
     if (item.itemImages.length > 0) {
         html += `<img src="/api/item/itemimage/${item.itemImages[0].newFilename}">`;
@@ -118,17 +117,15 @@ const displayCard = (item) => {
 };
 
 function display() {
-
-        $.ajax({
-            url: "/api/search/user",
-            type: "GET",
-            success: (result) => {
-                console.log(result.data);
-                displayResults(result.data);
-            },
-            error: (err) => {
-                console.log(err);
-            },
-        });
-    
+    $.ajax({
+        url: "/api/search/user",
+        type: "GET",
+        success: (result) => {
+            console.log(result.data);
+            displayResults(result.data);
+        },
+        error: (err) => {
+            console.log(err);
+        },
+    });
 }

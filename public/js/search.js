@@ -53,7 +53,7 @@ const loadResults = (data) => {
 const addCard = (item) => {
     let html = `
    		<div class="col s12 m4">
-      		<div class="card small">
+      		<div class="card small hoverable">
         		<div class="card-image">`;
     if (item.itemImages.length > 0) {
         html += `<img src="/api/item/itemimage/${item.itemImages[0].newFilename}">`;
