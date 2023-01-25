@@ -1,6 +1,7 @@
 $(document).ready(function () {
     displayUserDetails();
     display();
+    $(".modal").modal();
 });
 
 const displayUserDetails = () => {
