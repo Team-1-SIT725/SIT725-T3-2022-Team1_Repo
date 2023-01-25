@@ -46,7 +46,7 @@ const loadItem = (item) => {
         html += `<div class="btn disabled">${item.itemAvailability}</div>`;
     }
 
-    html += `<a href="chat.html" class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">message</i></a>
+    html += `<a href="chat.html?userID=${item.userID}" class="btn-floating btn-large halfway-fab waves-effect waves-light"><i class="material-icons">message</i></a>
             </div>
 
             <span class="card-title col s12">${item.itemName}</span>
