@@ -54,9 +54,11 @@ const searchUser = async (req, res) => {
             myitem = await item.find({ userID: userID });
         }
 
-        if (!myitem) throw new Error("Item does not exist");
-
-        res.json({ statusCode: 200, message: "Success", data: myitem });
+        if (!myitem) {
+            res.json({ statusCode: 204, message: "No available items" });
+        } else {
+            res.json({ statusCode: 200, message: "Success", data: myitem });
+        }
     } catch (err) {
         console.log("Error", err);
         res.json({ statusCode: 400, message: err });
