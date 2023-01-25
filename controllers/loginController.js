@@ -25,12 +25,12 @@ const registerUser = (req, res) => {
     User.findOne({ email: email }).then((user) => {
       if (user) {
         console.log("email exists");
-        res.render("register", {
-          name,
-          email,
-          password,
-          confirm,
-        });
+        // res.render("register", {
+        //   name,
+        //   email,
+        //   password,
+        //   confirm,
+        // });
       } else {
         //Validation
         const newUser = new User({
