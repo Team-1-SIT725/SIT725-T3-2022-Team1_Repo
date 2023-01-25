@@ -38,32 +38,7 @@ const searchItems = async (req, res) => {
     }
 };
 
-const searchUser = async (req, res) => {
-    try {
-        let userID;
-        let myitem;
-
-        if (req.params.userID) {
-            userID = req.params.userID;
-            myitem = await item.find({
-                userID: userID,
-                itemAvailability: "Available",
-            });
-        } else {
-            userID = req.user._id;
-            myitem = await item.find({ userID: userID });
-        }
-
-        if (!myitem) {
-            res.json({ statusCode: 204, message: "No available items" });
-        } else {
-            res.json({ statusCode: 200, message: "Success", data: myitem });
-        }
-    } catch (err) {
-        console.log("Error", err);
-        res.json({ statusCode: 400, message: err });
-    }
-};
+const searchUser = async (req, res) => {};
 
 module.exports = {
     search,

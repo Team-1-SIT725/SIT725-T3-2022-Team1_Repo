@@ -10,7 +10,7 @@ router.get("/item", (req, res) => {
     controllers.SearchController.searchItems(req, res);
 });
 
-router.get("/user/:userID?", (req, res) => {
+router.get("/user", (req, res) => {
     controllers.SearchController.searchUser(req, res);
 });
 
