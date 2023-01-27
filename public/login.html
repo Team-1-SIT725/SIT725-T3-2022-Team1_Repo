@@ -21,14 +21,23 @@
 
     <!-- Custom Style Sheet-->
     <link rel="stylesheet" href="css/styles.css">
-
+<style>
+    .background{
+  background-image: url("images/background.jpg");
+  width: auto;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
 </head>
 
 <body>
     <nav class="black lighten-2">
         <img src = "./images/TradeBiBata_Logo.svg" class = "center">
     </nav>
-
+    <div class="background">
     <div class="container">
         <form class="form-horizontal" method="post" action="/login">
             <br>
@@ -69,6 +78,7 @@
                 </div>
             </div>
         </form>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
