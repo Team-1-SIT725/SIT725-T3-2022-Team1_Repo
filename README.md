@@ -2,7 +2,7 @@
 ## Address varification
 ### Require address and other information of users
 #### step 1, input valid address
-Address varification power uped by the addy solution\
+Address varification power up by the addy solution\
 https://www.addysolutions.com/
 #### step 2, input personal file 
 Accept pdf, jpeg, png
