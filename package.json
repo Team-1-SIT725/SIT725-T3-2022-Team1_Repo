@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Kachi-Okorie/SIT725-T3-2022-Team1_Repo#readme",
   "dependencies": {
+    "alert": "^5.1.4",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "chai": "^4.3.7",

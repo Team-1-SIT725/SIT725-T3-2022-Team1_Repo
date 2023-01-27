@@ -5,7 +5,22 @@ $(document).ready(function () {
         limit: 6,
     });
     // $(".autocomplete").on("input change", updateSearch);
+    displayUserDetailsNav();
 });
+
+const displayUserDetailsNav = () => {
+    $.ajax({
+        url: "/api/profile",
+        type: "GET",
+
+        success: (result) => {
+            $(".userNameUpdate").text(result.data.user);
+        },
+        error: (err) => {
+            console.log(err);
+        },
+    });
+};
 
 // $(".autocomplete").on("input change", function () {
 //     const instance = M.Autocomplete.getInstance(
