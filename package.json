@@ -30,6 +30,8 @@
     "express-session": "^1.17.3",
     "fs": "^0.0.1-security",
     "handlebars": "^4.7.7",
+    "http": "^0.0.1-security",
+    "httpserver": "^0.3.0",
     "i": "^0.3.7",
     "joi": "^17.7.0",
     "jquery": "^3.6.3",
@@ -48,6 +50,7 @@
     "socket.io": "^4.5.4"
   },
   "devDependencies": {
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.3",
+    "nodemon": "^2.0.4"
   }
 }

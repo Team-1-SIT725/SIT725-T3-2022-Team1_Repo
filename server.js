@@ -19,7 +19,7 @@ const httpserver = http.createServer(app);
 const {Server} = require("socket.io");
 const io = new Server(httpserver);
 
-const {onSocket} = require("./socket");
+const {onSocket} = require("./controllers/chatController");
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
