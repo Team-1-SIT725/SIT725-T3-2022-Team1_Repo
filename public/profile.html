@@ -128,7 +128,7 @@
                         <label>Category</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <select name="itemCondition" id="itemCondition" class="validate">
+                        <select name="itemCondition" id="itemCondition" class="validate" required>
                             <option value="" disabled selected>Select Condition</option>
                             <option value="New">New</option>
                             <option value="Like New">Like New</option>
@@ -136,7 +136,9 @@
                             <option value="Used">Used</option>
                         </select>
                         <label>Item Condition</label>
-                        <span class="helper-text" data-error="Please select a condition"></span>
+                        <span class="red-text small-text hide" id="itemCondition-error"
+                            data-error="Please select a condition">Please
+                            select a condition</span>
                     </div>
 
                     <div class="input-field col s12">

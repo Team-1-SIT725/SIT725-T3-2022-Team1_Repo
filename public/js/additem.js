@@ -8,7 +8,7 @@ $(document).ready(function () {
     // $("#addItemSubmit").click(submitForm);
     $("input#itemName, textarea#itemDescription").characterCounter();
     $("#img-upload").on("change", imgPreview);
-
+    $("#itemCondition").on("change", itemCondition);
     $("#additembtn").floatingActionButton();
 });
 
@@ -36,6 +36,12 @@ function imgPreview(e) {
     console.log(files);
 }
 
+function itemCondition(e) {
+    if (e.target.checkValidity()) {
+        document.querySelector("#itemCondition-error").classList.add("hide");
+    }
+}
+
 const removeFile = (fileName) => {
     const dt = new DataTransfer();
     const imgUpload = $("#img-upload");
@@ -57,11 +63,19 @@ const submitAddItem = () => {
                 document
                     .querySelector("#img-upload-error")
                     .classList.remove("hide");
+            } else if (fields[i].id == "itemCondition") {
+                document
+                    .querySelector("#itemCondition-error")
+                    .classList.remove("hide");
             }
         } else {
             if (fields[i].id == "img-upload") {
                 document
                     .querySelector("#img-upload-error")
+                    .classList.add("hide");
+            } else if (fields[i].id == "itemCondition") {
+                document
+                    .querySelector("#itemCondition-error")
                     .classList.add("hide");
             }
         }
