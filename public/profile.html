@@ -88,15 +88,34 @@
                         <div class="row">
                             <div class="col s12 center-align">
                                 <input class="hide" type="file" name="photos" id="img-upload" accept=".jpg, .jpeg, .png"
-                                    multiple>
-                                <label class="btn" for="img-upload">Upload Image</label>
+                                    multiple required>
+                                <label class="btn " for="img-upload">Upload Image</label>
                             </div>
+                            <div class="hide col s12 center-align red-text" id="img-upload-error">Min 1 image required
+                            </div>
+                            <!-- <div class="col s12 center-align">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>File</span>
+                                        <input type="file" name="photos" id="img-upload" accept=".jpg, .jpeg, .png"
+                                            multiple required>
+                                        <span class="helper-text" data-error="Min 1 image required"></span>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text"
+                                            placeholder="Upload one or more files">
+                                    </div>
+
+                                </div>
+                            </div> -->
                         </div>
                     </div>
-
+                    <!--  -->
                     <div class="input-field col s12">
-                        <input id="itemName" name="itemName" type="text" class="" data-length="250">
+                        <input id="itemName" name="itemName" type="text" class="validate" minlength="10" maxlength="100"
+                            data-length="100" required>
                         <label for="itemName">Item Name</label>
+                        <span class="helper-text" data-error="Required Field. Min 10 charcters, max 100"></span>
                     </div>
 
                     <div class="input-field col s12 m6">
@@ -109,7 +128,7 @@
                         <label>Category</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <select name="itemCondition" id="itemCondition">
+                        <select name="itemCondition" id="itemCondition" class="validate">
                             <option value="" disabled selected>Select Condition</option>
                             <option value="New">New</option>
                             <option value="Like New">Like New</option>
@@ -117,12 +136,14 @@
                             <option value="Used">Used</option>
                         </select>
                         <label>Item Condition</label>
+                        <span class="helper-text" data-error="Please select a condition"></span>
                     </div>
 
                     <div class="input-field col s12">
-                        <textarea id="itemDescription" name="itemDescription"
-                            class="validate materialize-textarea"></textarea>
+                        <textarea id="itemDescription" name="itemDescription" class="validate materialize-textarea"
+                            data-length="100" required></textarea>
                         <label for="itemDescription">Description</label>
+                        <span class="helper-text" data-error="Required Field Min 10 charcters, max 1000"></span>
                     </div>
 
                     <div class="divider"></div>
