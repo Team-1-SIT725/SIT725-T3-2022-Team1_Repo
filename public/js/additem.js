@@ -16,6 +16,7 @@ $(document).ready(function () {
 function imgPreview(e) {
     var files = e.target.files;
     var filesLength = files.length;
+    document.querySelector("#img-upload-error").classList.add("hide");
     for (let i = 0; i < filesLength; i++) {
         let f = files[i];
         let fileReader = new FileReader();
@@ -44,10 +45,33 @@ const removeFile = (fileName) => {
 };
 
 const submitAddItem = () => {
-    let formData = new FormData(document.querySelector("#addItemForm"));
+    //Check form is valid before submitting
+    let frmValid = true;
+    let fields = document.querySelector("#addItemForm").elements;
 
-    console.log("Form Data Submitted: ", formData);
-    addItemToApp(formData);
+    for (i = 0; i < fields.length; i++) {
+        if (!fields[i].checkValidity()) {
+            frmValid = false;
+            fields[i].classList.add("invalid");
+            if (fields[i].id == "img-upload") {
+                document
+                    .querySelector("#img-upload-error")
+                    .classList.remove("hide");
+            }
+        } else {
+            if (fields[i].id == "img-upload") {
+                document
+                    .querySelector("#img-upload-error")
+                    .classList.add("hide");
+            }
+        }
+    }
+
+    if (frmValid) {
+        let formData = new FormData(document.querySelector("#addItemForm"));
+        console.log("Form Data Submitted: ", formData);
+        addItemToApp(formData);
+    }
 };
 
 //ajax
