@@ -1,6 +1,7 @@
 const models = require("../models");
 const item = models.itemModels.item;
 const User = require("../models/User");
+const path = require("path");
 
 const profileUser = async (req, res) => {
     let data;
@@ -14,6 +15,7 @@ const profileUser = async (req, res) => {
                             location: user.location,
                             userID: user._id,
                             verified: user.addressVer,
+                            profileImg: user.profileImgFilename,
                         };
                         res.json({
                             statusCode: 200,
@@ -37,6 +39,7 @@ const profileUser = async (req, res) => {
                 location: req.user.location,
                 userID: req.user._id,
                 verified: req.user.addressVer,
+                profileImg: req.user.profileImgFilename,
             };
             return res.json({
                 statusCode: 200,
@@ -77,7 +80,35 @@ const userItems = async (req, res) => {
     }
 };
 
+const profileImgUpload = async (req, res) => {
+    try {
+        await User.updateOne(
+            { _id: req.user._id },
+            { $set: { profileImgFilename: req.file.filename } }
+        );
+        res.json({
+            statusCode: 200,
+            message: `Profile image uploaded`,
+        });
+    } catch (err) {
+        console.log("Error", err);
+        res.json({ statusCode: 400, message: err });
+    }
+};
+
+const profileImg = async (req, res) => {
+    try {
+        res.sendFile(
+            path.join(__dirname, "../profile-img/" + req.params.filename)
+        );
+    } catch (err) {
+        console.log("Error MSG");
+        //set error handling
+    }
+};
 module.exports = {
     profileUser,
     userItems,
+    profileImgUpload,
+    profileImg,
 };

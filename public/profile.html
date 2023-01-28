@@ -22,25 +22,7 @@
     <!-- Custom Style Sheet-->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/items.css">
-    <style>
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            /* width: 50%;
-    height: 40%; */
-        }
-
-        .w3-container {
-            background-color: rgb(110, 225, 225);
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: white;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body>
@@ -49,9 +31,19 @@
 
     <div class="container">
         <div class="w3-container w3-teal">
-            <img
-                src="data:image/png;base64,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">
-
+            <form class="col s12" action="/api/profile/saveProfileImg" enctype="multipart/form-data"
+                id="profile-img-uploadFrm" method="post">
+                <input class="hide" type="file" name="profile-img-upload" id="profile-img-upload"
+                    accept=".jpg, .jpeg, .png">
+                <!-- <label class="btn " for="profile-img-upload">Upload Image</label> -->
+            </form>
+            <a href="#" id="profile-img-link" class="tooltipped" data-position="bottom"
+                data-tooltip="Upload Profile Image">
+                <span class="circle-image">
+                    <img class="" id="profile-img"
+                        src="data:image/png;base64,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">
+                </span>
+            </a>
             <h5 id="user_name">Anonymous user 1</h5>
             <h5 id="location">aus</h5>
             <!-- 
@@ -93,21 +85,6 @@
                             </div>
                             <div class="hide col s12 center-align red-text" id="img-upload-error">Min 1 image required
                             </div>
-                            <!-- <div class="col s12 center-align">
-                                <div class="file-field input-field">
-                                    <div class="btn">
-                                        <span>File</span>
-                                        <input type="file" name="photos" id="img-upload" accept=".jpg, .jpeg, .png"
-                                            multiple required>
-                                        <span class="helper-text" data-error="Min 1 image required"></span>
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text"
-                                            placeholder="Upload one or more files">
-                                    </div>
-
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                     <!--  -->
