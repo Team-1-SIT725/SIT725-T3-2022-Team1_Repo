@@ -5,3 +5,17 @@
 .account-logo  {
     vertical-align: middle;
 }
+
+.circle-image-nav {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+}
+
+.circle-image-nav img{
+width:100%;
+height:100%;
+object-fit: cover;
+}

@@ -15,6 +15,12 @@ const displayUserDetailsNav = () => {
 
         success: (result) => {
             $(".userNameUpdate").text(result.data.user);
+            if (result.data.profileImg) {
+                $("#side-nav-profile-img").attr(
+                    "src",
+                    `/api/profile/profileImg/${result.data.profileImg}`
+                );
+            }
         },
         error: (err) => {
             console.log(err);
