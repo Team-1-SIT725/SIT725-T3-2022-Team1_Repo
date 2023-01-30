@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>TradeBiBata</title>
-    
-    
-    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/chat.css" >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+   <link rel="stylesheet" href="css/chat.css" />
+    <title>Chat app</title>
   </head>
   <body>
     <div id="nav-placeholder"></div>
-    <br>
-    <br>
-    <div class="container" >
-      <div class="messages_container">
-        <div class="messages" id="messages" ></div>
-        <form class="input_container" id="form">
-          <input class="input" id="input" placeholder="send message" />
-          <button class="btn" type="submit" >Send</button>
-        </form>
+    <h1 class="title">Trade your messages here!</h1>
+    <div class="main">
+      <div class="name">
+        <span><i class="far fa-user"></i></span>
+        <input
+          type="text"
+          id="name-input"
+          class="name-input"
+          value="anonymous"
+          maxlength="20"
+        />
       </div>
+
+      <ul class="message-container" id="message-container">
+        
+      </ul>
+      <form class="message-form" id="message-form">
+        <input
+          type="text"
+          name="message"
+          id="message-input"
+          class="message-input"
+        />
+        <div class="v-divider"></div>
+        <button type="submit" class="send-button">
+          send <span><i class="fas fa-paper-plane"></i></span>
+        </button>
+      </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        $.get("nav.html", function (data) {
-            $("#nav-placeholder").replaceWith(data);
-        });
-    </script>
+    <h3 class="clients-total" id="client-total">User Available</h3>
+
     <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
+      integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
     <script src="js/chat.js"></script>
-   
- 
+    <script>
+      $.get("nav.html", function (data) {
+          $("#nav-placeholder").replaceWith(data);
+      });
+      
+  </script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
