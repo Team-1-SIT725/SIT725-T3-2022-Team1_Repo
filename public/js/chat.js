@@ -5,19 +5,14 @@ $(document).ready(function () {
   startChat();
 });
 
-
-
-
-
-
 const displayUserDetails = () => {
   const queryString = window.location.search;
    $.ajax({
-    url: "/api/profile",
+    url: "/api/profile"+queryString,
     type: "GET",
     success: (result) => {
       console.log(result);
-      document.getElementById('name-input').value = result.user;
+      document.getElementById('name-input').value = result.data.user;
     },
     error: (err) => {
       console.log(err);
@@ -34,7 +29,7 @@ function startChat() {
   const messageForm = document.getElementById('message-form')
   const messageInput = document.getElementById('message-input')
 
-  const messageTone = new Audio('/message-tone.mp3')
+ // const messageTone = new Audio('/message-tone.mp3')
 
   messageForm.addEventListener('submit', (e) => {
     e.preventDefault()
