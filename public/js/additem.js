@@ -99,7 +99,7 @@ const addItemToApp = (formData) => {
         success: (result) => {
             console.log(result.message);
             location.reload(); //used to reload the page
-            displayResults(result.data);
+            // displayResults(result.data);
             // window.location = "/template.html";
         },
         error: (err) => {
