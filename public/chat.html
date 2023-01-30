@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -9,11 +12,12 @@
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/chat.css" />
+   <link rel="stylesheet" href="css/chat.css" />
     <title>Chat app</title>
   </head>
   <body>
-    <h1 class="title">iChat 💬</h1>
+    <div id="nav-placeholder"></div>
+    <h1 class="title">Trade your messages here!</h1>
     <div class="main">
       <div class="name">
         <span><i class="far fa-user"></i></span>
@@ -54,5 +58,13 @@
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
     <script src="js/chat.js"></script>
+    <script>
+      $.get("nav.html", function (data) {
+          $("#nav-placeholder").replaceWith(data);
+      });
+      
+  </script>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
