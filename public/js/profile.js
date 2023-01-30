@@ -2,6 +2,9 @@ $(document).ready(function () {
     displayUserDetails();
     display();
     $(".modal").modal();
+    $(".tooltipped").tooltip();
+    $("#profile-img-link").on("click", uploadProfileImg);
+    $("#profile-img-upload").on("change", uploadProfileImgSubmit);
 });
 
 const displayUserDetails = () => {
@@ -13,6 +16,12 @@ const displayUserDetails = () => {
         success: (result) => {
             $("#user_name").text(result.data.user);
             $("#location").text(result.data.location);
+            if (result.data.profileImg) {
+                $("#profile-img").attr(
+                    "src",
+                    `/api/profile/profileImg/${result.data.profileImg}`
+                );
+            }
         },
         error: (err) => {
             console.log(err);
@@ -74,6 +83,31 @@ function display() {
         },
         error: (err) => {
             console.log(err);
+        },
+    });
+}
+
+function uploadProfileImg(e) {
+    e.preventDefault();
+    $("#profile-img-upload").trigger("click");
+}
+function uploadProfileImgSubmit() {
+    let formData = new FormData(
+        document.querySelector("#profile-img-uploadFrm")
+    );
+
+    $.ajax({
+        url: "/api/profile/saveProfileImg",
+        data: formData,
+        type: "POST",
+        processData: false,
+        contentType: false,
+        success: (result) => {
+            console.log(result.message);
+            location.reload(); //used to reload the page
+        },
+        error: (err) => {
+            console.log(err.message);
         },
     });
 }

@@ -8,7 +8,7 @@ $(document).ready(function () {
     // $("#addItemSubmit").click(submitForm);
     $("input#itemName, textarea#itemDescription").characterCounter();
     $("#img-upload").on("change", imgPreview);
-
+    $("#itemCondition").on("change", itemCondition);
     $("#additembtn").floatingActionButton();
 });
 
@@ -16,6 +16,7 @@ $(document).ready(function () {
 function imgPreview(e) {
     var files = e.target.files;
     var filesLength = files.length;
+    document.querySelector("#img-upload-error").classList.add("hide");
     for (let i = 0; i < filesLength; i++) {
         let f = files[i];
         let fileReader = new FileReader();
@@ -35,6 +36,12 @@ function imgPreview(e) {
     console.log(files);
 }
 
+function itemCondition(e) {
+    if (e.target.checkValidity()) {
+        document.querySelector("#itemCondition-error").classList.add("hide");
+    }
+}
+
 const removeFile = (fileName) => {
     const dt = new DataTransfer();
     const imgUpload = $("#img-upload");
@@ -44,10 +51,41 @@ const removeFile = (fileName) => {
 };
 
 const submitAddItem = () => {
-    let formData = new FormData(document.querySelector("#addItemForm"));
+    //Check form is valid before submitting
+    let frmValid = true;
+    let fields = document.querySelector("#addItemForm").elements;
 
-    console.log("Form Data Submitted: ", formData);
-    addItemToApp(formData);
+    for (i = 0; i < fields.length; i++) {
+        if (!fields[i].checkValidity()) {
+            frmValid = false;
+            fields[i].classList.add("invalid");
+            if (fields[i].id == "img-upload") {
+                document
+                    .querySelector("#img-upload-error")
+                    .classList.remove("hide");
+            } else if (fields[i].id == "itemCondition") {
+                document
+                    .querySelector("#itemCondition-error")
+                    .classList.remove("hide");
+            }
+        } else {
+            if (fields[i].id == "img-upload") {
+                document
+                    .querySelector("#img-upload-error")
+                    .classList.add("hide");
+            } else if (fields[i].id == "itemCondition") {
+                document
+                    .querySelector("#itemCondition-error")
+                    .classList.add("hide");
+            }
+        }
+    }
+
+    if (frmValid) {
+        let formData = new FormData(document.querySelector("#addItemForm"));
+        console.log("Form Data Submitted: ", formData);
+        addItemToApp(formData);
+    }
 };
 
 //ajax
@@ -61,7 +99,7 @@ const addItemToApp = (formData) => {
         success: (result) => {
             console.log(result.message);
             location.reload(); //used to reload the page
-            displayResults(result.data);
+            // displayResults(result.data);
             // window.location = "/template.html";
         },
         error: (err) => {
