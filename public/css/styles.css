@@ -1,14 +1,25 @@
-body {
+/* body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
     font-size: 16px;
     background-image: url("images/background.jpg");
-}
+} */
 
+/* body {
+  font-family: Arial, Helvetica, sans-serif;
+  
+  font-size: 16px;
+  color: black;
+  background-image: url("images/background.jpg");
+  background-size: 100%;
+} */
 
 .form-group{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
+}
+.form-label{
+  color: black;
 }
 
 .navbar-size {
