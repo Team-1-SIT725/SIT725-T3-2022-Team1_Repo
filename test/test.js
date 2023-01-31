@@ -12,15 +12,6 @@ describe("Add Two Numbers", function () {
         });
     });
 
-    //     //second it function
-    //     it("returns statusCode key in body to check if api give right result should be 200", function(done) {
-    //         request(url, function(error, response, body) {
-    //             body = JSON.parse(body) //when you want to make use of the body object
-    //             expect(body.statusCode).to.equal(200);
-    //             done()
-    //             });
-    //     });
-
     //         //third it function
     //     it("returns the result as number", function(done) {
     //         request(url, function(error, response, body) {
