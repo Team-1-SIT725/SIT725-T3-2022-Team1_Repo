@@ -51,7 +51,7 @@ This .env file contains settings need to run the but are sensitive and not synce
 
 `PORT` control the port number your web server will run on by default it's 3000 but you can change this to something else provided it's not in use.
 
-If you have both a dev and prod environment populate the Mongo URI for both environments if you are new to MongoDB see this [section]() on setting up a new account and getting your URI.
+If you have both a dev and prod environment populate the Mongo URI for both environments if you are new to MongoDB see this [section](#mongodb-setup) on setting up a new account and getting your URI.
 
 Email settings are for the outgoing mail server where email verification and password reset email will come from. For example if your using gmail as your email host you would use the following
 
@@ -62,7 +62,7 @@ EMAIL_PASSWORD = "" //note this is not your account login password 2FA and appli
 FROM_EMAIL = "myemailaccount@gmail.com"
 ```
 
-See this [section]() for details instruction for setting up 2FA and an application specific password.
+See this [section](#gmail-setup) for details instruction for setting up 2FA and an application specific password.
 
 ## MongoDB setup
 
