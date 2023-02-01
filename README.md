@@ -2,7 +2,13 @@
 
 ## Installation
 
-This guide assumes you have github and VScode installed.
+This guide assumes you have the following installed:
+
+-   git or github desktop [github desktop download](https://desktop.github.com/)
+-   npm [npm download & install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+-   VScode [download](https://code.visualstudio.com/download)
+
+If not please see the relevant installation guides
 
 From your command line navigate to where you want to save the repository,
 Run the following commands to clone the repository and setup the folders.
@@ -63,6 +69,8 @@ FROM_EMAIL = "myemailaccount@gmail.com"
 ```
 
 See this [section](#gmail-setup) for details instruction for setting up 2FA and an application specific password.
+
+Run this command to install all the node packages
 
 ## MongoDB setup
 
