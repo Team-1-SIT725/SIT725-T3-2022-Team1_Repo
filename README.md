@@ -1,4 +1,4 @@
-# Trade Bi Bata setup
+# TradeBiBata Setup
 
 ## Installation
 
@@ -42,10 +42,10 @@ MONGO_URI_DEV = ""
 MONGO_URI_PROD = ""
 
 #email settings
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_USERNAME = "tradebibata@gmail.com"
-EMAIL_PASSWORD = "xrncledojkwvyrnb"
-FROM_EMAIL = "tradebibata@gmail.com"
+EMAIL_HOST = ""
+EMAIL_USERNAME = ""
+EMAIL_PASSWORD = ""
+FROM_EMAIL = ""
 
 # User name and password for test account
 USER_NAME = ""
@@ -64,13 +64,27 @@ Email settings are for the outgoing mail server where email verification and pas
 ```
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USERNAME = "myemailaccount@gmail.com"
-EMAIL_PASSWORD = "" //note this is not your account login password 2FA and application password needed.
+EMAIL_PASSWORD = "" #note this is not your account login password 2FA and application password needed.
 FROM_EMAIL = "myemailaccount@gmail.com"
 ```
 
 See this [section](#gmail-setup) for details instruction for setting up 2FA and an application specific password.
 
 Run this command to install all the node packages
+
+```
+npm install
+```
+
+## Running TradeBiBata
+
+Once everything is installed and configured you can start TradeBiBata by running the following comment from the SIT725-T3-2022-Team1_Repo directory
+
+`npm start`
+
+enter `http://localhost:3000/` in your web browser and you will be presented with the login screen. Create a new account and test the system out.
+
+Congratulations!!! your are setup and ready to got for more information and guides on using the different parts of TradeBiBata please see the [Wiki](https://github.com/Team-1-SIT725/SIT725-T3-2022-Team1_Repo/wiki)
 
 ## MongoDB setup
 
