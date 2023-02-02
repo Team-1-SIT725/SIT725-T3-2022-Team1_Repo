@@ -21,6 +21,7 @@ const search = async (req, res) => {
     }
 };
 
+//Not currently in use
 const searchItems = async (req, res) => {
     try {
         let result = await item.aggregate().search({
@@ -38,10 +39,7 @@ const searchItems = async (req, res) => {
     }
 };
 
-const searchUser = async (req, res) => {};
-
 module.exports = {
     search,
     searchItems,
-    searchUser,
 };

@@ -57,7 +57,6 @@ describe("Logged in User - Item Routes", function () {
                 password: process.env.PASSWORD,
             });
         cookie = response.headers["set-cookie"].pop().split(";")[0];
-        console.log(cookie);
     });
 
     it("post /api/item/add", async function () {
@@ -105,5 +104,32 @@ describe("Logged in User - Item Routes", function () {
         const response = await request.post(url).set("Cookie", cookie).send();
         expect(response.status).to.equal(200);
         expect(response._body.statusCode).to.equal(200);
+    });
+});
+
+describe("Logged in User - Search", function () {
+    let cookie;
+    let newItem;
+
+    before(async function () {
+        const response = await request
+            .post("/login")
+            .set("Accept", "application/json")
+            .send({
+                email: process.env.USER_NAME,
+                password: process.env.PASSWORD,
+            });
+        cookie = response.headers["set-cookie"].pop().split(";")[0];
+    });
+
+    it("get /api/search/", async function () {
+        let url = "/api/search";
+        const response = await request
+            .get(url)
+            .set("Cookie", cookie)
+            .query({ term: "iPhone" });
+        expect(response.status).to.equal(200);
+        expect(response._body.statusCode).to.equal(200);
+        expect(response._body.data).to.be.an("array");
     });
 });
