@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>TradeBiBata Login</title>
-    <meta name="description" content="basic template for SIT725 Week 5 Practical">
+    <title>TradeBiBata</title>
+    <meta name="description" content="TradeBiBata application">
     <meta name="author" content="SitePoint">
 
-    <meta property="og:title" content="SIT 725 Prac 5">
+    <meta property="og:title" content="Pages of TradeBiBata">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="basic template for SIT725 Week 5 Practical">
+    <meta property="og:description" content="TradeBiBata application">
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -26,7 +26,7 @@
     <style>
         body {
           font-family: Arial, Helvetica, sans-serif;
-          /* background-color: white; */
+          
           font-size: 16px;
           color: black;
           background-color: #dad6d6;
@@ -43,11 +43,12 @@
     </nav>
 
     <div class="container">
-        <form class="form-horizontal" method="post" action="/register">
+        <form class="form-horizontal" method="post" action="/register"> <!--Performs a post action to the register route-->
             <br>
             <h4>Register</h4>
             <h5>Please enter details to register</h5>
             <br>
+            <!--Five different rows created for each form label-->
             <div class="form-group row">
                 <label for="name" class="form-label">Your name:</label>
                 <div class="input-field col-lg-10">
@@ -69,14 +70,7 @@
                         required>
                 </div>
             </div>
-            <!-- <div class="form-group row mb-3 mt-3 was-validated">
-                    <label for="fname" class="form-label col-lg-2">Phone number:</label>
-                    <div class="col-lg-10">
-                        <input type="number" class="form-control" id="mnum" placeholder="number" name="mnum" required>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Must contain only numbers</div>
-                    </div>
-                </div> -->
+          
             <div class="form-group row">
                 <label for="password" class="form-label">Password:</label>
                 <div class="input-field col-lg-10">
@@ -91,6 +85,7 @@
                         name="confirm" required>
                 </div>
             </div>
+            <!--When the submit button is clicked, it activates the /register route-->
             <div class="col s12 center-align">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Register
                     <i class="material-icons right">send</i>
@@ -98,9 +93,6 @@
             </div>
 
             <div class="center">
-                <!-- <div class="form-group center-align">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-                </div> -->
                 <div class="login-register">
                     <p>Already have an account? <a href="/login.html"> Login</a></p>
                 </div>
@@ -111,15 +103,6 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
-    <!-- <script>
-
-    $.get("nav.html", function (data) {
-
-        $("#nav-placeholder").replaceWith(data);
-
-    });
-
-</script> -->
 </body>
 
 </html>
