@@ -1,3 +1,5 @@
+// redirects authenticated users
+
 const protectRoute = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
@@ -8,5 +10,5 @@ const protectRoute = (req, res, next) => {
 
 module.exports = {
     protectRoute,
-    // allowIf,
+   
 };
