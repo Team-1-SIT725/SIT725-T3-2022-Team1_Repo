@@ -1,3 +1,14 @@
+/*****************************************************************************
+Function: ready
+Author: Phil Williams
+
+Purpose: This function receives an input form the post /api/item/add route.
+It saves form entries received from the frontend and saves them to the item
+database. 
+
+CRUD - Create
+******************************************************************************/
+
 $(document).ready(function () {
     $(".modal").modal();
     $("select").formSelect();

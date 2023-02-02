@@ -14,6 +14,7 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + path.extname(file.originalname)); //Appending extension
     },
 });
+//Multer is a middleware used to save files uploaded by the input form element
 const upload = multer({
     storage: storage,
     limits: {
