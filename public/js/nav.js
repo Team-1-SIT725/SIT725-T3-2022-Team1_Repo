@@ -1,3 +1,11 @@
+/*****************************************************************************
+Function: $(document).ready
+Author: Phil Williams
+
+Purpose: jQuery Function that runs once the DOM is loaded. Initialises a number 
+of materialize css components and jquery events.
+*****************************************************************************/
+
 $(document).ready(function () {
     $(".sidenav").sidenav();
     $(".autocomplete").autocomplete({
@@ -8,6 +16,12 @@ $(document).ready(function () {
     displayUserDetailsNav();
 });
 
+/*****************************************************************************
+Function: displayUserDetailsNav
+Author: Phil Williams
+
+Purpose: Displays the user details and image on the side nave for mobile views
+*****************************************************************************/
 const displayUserDetailsNav = () => {
     $.ajax({
         url: "/api/profile",
@@ -62,6 +76,13 @@ const displayUserDetailsNav = () => {
 //     });
 // });
 
+/*****************************************************************************
+Function: updateSearch
+Author: Phil Williams
+
+Purpose: Component for autocomplete in search field. presently inactive. 
+*****************************************************************************/
+
 function updateSearch(e) {
     debugger;
     $.ajax({
@@ -106,14 +127,33 @@ function updateSearch(e) {
 // select: function (event, ui) {
 // console.log(ui.item);
 
+/*****************************************************************************
+Function: OpenSearch
+Author: Phil Williams
+
+Purpose: Places the curser in the search field when opened
+*****************************************************************************/
 function OpenSearch() {
     $("#searchTop").select();
 }
 
+/*****************************************************************************
+Function: $(".dropdown-account").dropdown
+Author: Phil Williams
+
+Purpose: Jquery to initialise dropdown on the account button
+*****************************************************************************/
 $(".dropdown-account").dropdown({
     constrainWidth: false,
     coverTrigger: false,
 });
+
+/*****************************************************************************
+Function: $(".dropdown-search").dropdown
+Author: Phil Williams
+
+Purpose: Jquery to initialise dropdown on the navbar search
+*****************************************************************************/
 $(".dropdown-search").dropdown({
     constrainWidth: false,
     coverTrigger: false,
@@ -122,6 +162,12 @@ $(".dropdown-search").dropdown({
     onOpenEnd: OpenSearch,
 });
 
+/*****************************************************************************
+Function: $(".close-button").click
+Author: Phil Williams
+
+Purpose: Click event to close the search bar if the x is clicked
+*****************************************************************************/
 $(".close-button").click(() => {
     $(".dropdown-search").dropdown("close");
 });

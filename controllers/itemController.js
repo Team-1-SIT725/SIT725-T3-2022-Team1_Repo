@@ -4,10 +4,17 @@ const itemImages = models.itemModels.itemImages;
 const User = require("../models/User");
 const path = require("path");
 const fs = require("fs");
-const { name } = require("ejs");
-const { default: mongoose } = require("mongoose");
-const { func } = require("joi");
 
+/*****************************************************************************
+Function: addItem
+Author: Phil Williams
+
+Purpose: This function receives an input form the post /api/item/add route.
+It saves form entries received from the frontend and saves them to the item
+database. 
+
+CRUD - Create
+******************************************************************************/
 const addItem = async (req, res) => {
     //Store Variables from req
 
@@ -22,8 +29,7 @@ const addItem = async (req, res) => {
     let userID = req.user._id;
     let itemAvailability = req.body.itemAvailability;
 
-    //Validate Outputs
-
+    //Store file details for all attachments
     for (let i = 0; i < req.files.length; i++) {
         const newImage = new itemImages({
             filePath: req.files[i].path,
@@ -34,7 +40,7 @@ const addItem = async (req, res) => {
         itemImagesArray.push(newImage);
     }
 
-    //
+    //Create new DB item based on the Item Schema
     const newItem = new item({
         itemName: itemName,
         itemCategory: itemCategory,
@@ -48,6 +54,7 @@ const addItem = async (req, res) => {
         itemAvailability: itemAvailability,
     });
 
+    //saves the new item to the database
     newItem
         .save()
         .then((result) => {
@@ -64,16 +71,33 @@ const addItem = async (req, res) => {
         });
 };
 
+/*****************************************************************************
+Function: viewItem
+Author: Phil Williams
+
+Purpose: This function receives an input form the get /api/item/view route.
+Based on the item ID provided it looks up the DB and retrieves the items
+details using the ID of the user that owns the item it also looks up and 
+retrieves the User name and check if the current user owns this item.
+This information is returned to the frontend to display the item and restrict
+edit controls
+
+CRUD - Read
+******************************************************************************/
+
 const viewItem = async (req, res) => {
     try {
-        const itemID = req.params.itemID;
-        const myitem = await item.findOne({ _id: itemID }).lean();
+        const itemID = req.params.itemID; //take item ID from passed parameters
+        const myitem = await item.findOne({ _id: itemID }).lean(); //Lookup item in DB
         if (!myitem) throw new Error("Item does not exist");
 
+        //check if current users owns this item
         let sameUser = false;
         if (myitem.userID == req.user._id) {
             sameUser = true;
         }
+
+        //Look up usename for item owner
         const itemUser = await User.findOne({ _id: myitem.userID }).then(
             (user) => {
                 if (user) {
@@ -83,6 +107,7 @@ const viewItem = async (req, res) => {
                 }
             }
         );
+        //append posting userName and same user bool
         myitem.postingUserName = itemUser;
         myitem.sameUser = sameUser;
 
@@ -97,6 +122,13 @@ const viewItem = async (req, res) => {
     }
 };
 
+/*****************************************************************************
+Function: itemImage
+Author: Phil Williams
+
+Purpose: This function receives an input form the get /api/item/itemimage route.
+And returns an image based on the filename provided.
+******************************************************************************/
 const itemImage = async (req, res) => {
     try {
         res.sendFile(path.join(__dirname, "../upload/" + req.params.filename));
@@ -106,20 +138,36 @@ const itemImage = async (req, res) => {
     }
 };
 
+/*****************************************************************************
+Function: deleteItem
+Author: Phil Williams
+
+Purpose: This function receives an input form the get /api/item/delete route.
+And deletes the corresponding item from the DB and deletes the images from
+the upload directory. 
+
+CRUD - Delete
+******************************************************************************/
+
 const deleteItem = async (req, res) => {
     const itemID = req.params.itemID;
     try {
+        //check item exists and create document to work with
         const myitem = await item.findOne({ _id: itemID }).lean();
         // if (!myitem) throw new Error("Item does not exist");
         if (!myitem)
             return res.json({ statusCode: 400, message: "Item not found" });
+
         if (myitem.userID == req.user._id) {
+            //check current user owns item
+            //delete images
             myitem.itemImages.forEach((element) => {
                 fs.unlink(`./upload/${element.newFilename}`, (err) => {
                     if (err) console.log(err);
                 });
             });
 
+            //delete DB entry
             await item
                 .deleteOne({ _id: itemID }, function (err) {
                     if (err) {
@@ -130,17 +178,29 @@ const deleteItem = async (req, res) => {
                         message: `Item ${myitem.itemName} Deleted`,
                     });
                 })
-                .clone();
+                .clone(); //forces mongoose to rerun DB query.
         }
     } catch (err) {
         return res.json({ statusCode: 400, message: err });
     }
 };
 
+/*****************************************************************************
+Function: updateAvailability
+Author: Phil Williams
+
+Purpose: This function receives an input form the post
+/api/item/updateavailability route.The corresponding item is updated with
+the provided status.  
+
+CRUD - Update
+******************************************************************************/
+
 const updateAvailability = async (req, res) => {
     const status = req.params.status;
     const itemID = req.params.itemID;
     try {
+        //Lookup item and set new status
         await item.updateOne(
             { _id: itemID },
             { $set: { itemAvailability: status } }

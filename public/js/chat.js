@@ -36,9 +36,9 @@ function startChat() {
         sendMessage();
     });
 
-    socket.on("clients-total", (data) => {
-        clientsTotal.innerText = `User Available to chat`;
-    });
+    // socket.on("clients-total", (data) => {
+    //     clientsTotal.innerText = `User Available to chat`;
+    // });
 
     function sendMessage() {
         if (messageInput.value === "") return;

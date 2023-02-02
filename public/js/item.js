@@ -136,7 +136,7 @@ function countDown() {
         window.location = "/profile.html";
     } else {
         document.getElementById("countdown").innerHTML = countDownSeconds;
-        window.setTimeout("countDown()", 1000);
+        window.setTimeout("countDown()", 1000); //1000 millisecond = 1 sec
     }
 }
 
