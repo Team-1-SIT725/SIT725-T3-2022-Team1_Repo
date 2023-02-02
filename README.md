@@ -93,22 +93,28 @@ Congratulations!!! your are setup and ready to got for more information and guid
 To setup a new MongoDB account fo to https://www.mongodb.com/ and click Try Free
 
 Register a new account or use SSO to sign up with google. Complete the registration process and sign in. Complete survey on application and select free shared for your database type and then select your provider and location click create cluster.
-[view showing MongoDb account types](/docs/assets/AccountType.png)
+
+![view showing MongoDb account types](/docs/assets/AccountType.png)
 
 For security quick start enter a username and password you will need these later to connect to the DB. Click Create User.
-[dialog for creating DB username and Password](/docs/assets/UsernamePass.png)
+
+![dialog for creating DB username and Password](/docs/assets/UsernamePass.png)
 
 Under where would you like to connect form leave it as My local Environment and enter 0.0.0.0/0 to not restrict access. Click add entry and click finish and close.
-[Image showing how to restrict access based on IP address](/docs/assets/NetworkAccess.png)
+
+![Image showing how to restrict access based on IP address](/docs/assets/NetworkAccess.png)
 
 You should now be presented with your first cluster. To get the connection details for node JS click connect.
-[view showing cluster](/docs/assets/Clusterview.png)
+
+![view showing cluster](/docs/assets/Clusterview.png)
 
 Select connect your application
-[view showing connect to your application](/docs/assets/Connect.png)
+
+![view showing connect to your application](/docs/assets/Connect.png)
 
 Make sure node.js is selected and copy the connection string replace <<password>> with the password you created earlier.
-[image showing DB connection string to copy](/docs/assets/URISample.png)
+
+![image showing DB connection string to copy](/docs/assets/URISample.png)
 
 Place this string in your .env file against MONGO_URI_DEV or MONGO_URI_PROD depending on the environment.
 
