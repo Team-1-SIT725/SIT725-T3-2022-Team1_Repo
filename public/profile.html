@@ -26,14 +26,14 @@
 
     <style>
         body {
-    margin-top:20px;
-    font-family: Arial, Helvetica, sans-serif;
-    /* background-color: white; */
-    font-size: 16px;
-    color: black;
-    background-image: url("images/bgimg.jpg");
-    background-size: 100%;
-  }
+            margin-top: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            /* background-color: white; */
+            font-size: 16px;
+            color: black;
+            background-image: url("images/bgimg.jpg");
+            background-size: 100%;
+        }
     </style>
 </head>
 
@@ -47,7 +47,7 @@
                 id="profile-img-uploadFrm" method="post">
                 <input class="hide" type="file" name="profile-img-upload" id="profile-img-upload"
                     accept=".jpg, .jpeg, .png">
-                <!-- <label class="btn " for="profile-img-upload">Upload Image</label> -->
+
             </form>
             <a href="#" id="profile-img-link" class="tooltipped" data-position="bottom"
                 data-tooltip="Upload Profile Image">
@@ -58,16 +58,6 @@
             </a>
             <h5 id="user_name">Anonymous user 1</h5>
             <h5 id="location">aus</h5>
-            <!-- 
-            <a class="red btn-floating  btn-large click-me-button modal-trigger right-align" id="additembtn"
-                data-target="additem"><i class="material-icons left">add</i>Add Item</a> -->
-
-            <!-- <div class="right"> -->
-            <!-- <div class="right-align"> -->
-            <!-- <a class="red btn-floating  btn-large click-me-button modal-trigger right-align" id="additembtn"
-                    data-target="additem"><i class="material-icons left">add</i>Add Item</a> -->
-            <!-- </div> -->
-            <!-- </div> -->
 
         </div>
         <div class="container center-align">
@@ -102,7 +92,7 @@
                     <!--  -->
                     <div class="input-field col s12">
                         <input id="itemName" name="itemName" type="text" class="validate" minlength="10" maxlength="100"
-                            data-length="100" required>
+                            data-length="1000" required>
                         <label for="itemName">Item Name</label>
                         <span class="helper-text" data-error="Required Field. Min 10 charcters, max 100"></span>
                     </div>

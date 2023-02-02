@@ -1,9 +1,8 @@
 module.exports = {
-    loginController: require('./loginController'),
-    dashboardController: require('./dashboardController'),
+    loginController: require("./loginController"),
     userProfilePrivateController: require("./userProfilePrivateController"),
     addressVarController: require("./addressVarController"),
-    profileController:require("./profileController"),
-    itemController:require("./itemController"),
+    profileController: require("./profileController"),
+    itemController: require("./itemController"),
     SearchController: require("./SearchController"),
-}
+};

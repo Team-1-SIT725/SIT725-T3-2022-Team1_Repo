@@ -82,7 +82,7 @@ retrieves the User name and check if the current user owns this item.
 This information is returned to the frontend to display the item and restrict
 edit controls
 
-CRUD - Retrieve
+CRUD - Read
 ******************************************************************************/
 
 const viewItem = async (req, res) => {
@@ -178,7 +178,7 @@ const deleteItem = async (req, res) => {
                         message: `Item ${myitem.itemName} Deleted`,
                     });
                 })
-                .clone();
+                .clone(); //forces mongoose to rerun DB query.
         }
     } catch (err) {
         return res.json({ statusCode: 400, message: err });

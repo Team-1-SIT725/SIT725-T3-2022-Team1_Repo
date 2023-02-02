@@ -1,81 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-      crossorigin="anonymous"
-    />
-   <link rel="stylesheet" href="css/chat.css" />
-    <title>Chat app</title>
-    <style>
-      body {
-  margin-top:20px;
-  font-family: Arial, Helvetica, sans-serif;
-  /* background-color: white; */
-  font-size: 16px;
-  color: black;
-  background-image: url("images/chat.png");
-  background-size: 100%;
-}
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/chat.css" />
+  <title>Chat app</title>
+  <style>
+    body {
+      margin-top: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      /* background-color: white; */
+      font-size: 16px;
+      color: black;
+      background-image: url("images/chat.png");
+      background-size: 100%;
+    }
   </style>
-  </head>
-  <body>
-    <div id="nav-placeholder"></div>
-    <h1 class="title">I would like to hear from you!</h1>
-    <div class="main">
-      <div class="name">
-        <span><i class="far fa-user"></i></span>
-        <input
-          type="text"
-          id="name-input"
-          class="name-input"
-          value="anonymous"
-          maxlength="20"
-        />
-      </div>
+</head>
 
-      <ul class="message-container" id="message-container">
-        
-      </ul>
-      <form class="message-form" id="message-form">
-        <input
-          type="text"
-          name="message"
-          id="message-input"
-          class="message-input"
-        />
-        <div class="v-divider"></div>
-        <button type="submit" class="send-button">
-          send <span><i class="fas fa-paper-plane"></i></span>
-        </button>
-      </form>
+<body>
+  <div id="nav-placeholder"></div>
+  <h1 class="title">I would like to hear from you!</h1>
+  <div class="main">
+    <div class="name">
+      <span><i class="far fa-user"></i></span>
+      <input type="text" id="name-input" class="name-input" value="anonymous" maxlength="20" />
     </div>
-    <h3 class="clients-total" id="client-total">User Available</h3>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
-      integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    <ul class="message-container" id="message-container">
+
+    </ul>
+    <form class="message-form" id="message-form">
+      <input type="text" name="message" id="message-input" class="message-input" />
+      <div class="v-divider"></div>
+      <button type="submit" class="send-button">
+        send <span><i class="fas fa-paper-plane"></i></span>
+      </button>
+    </form>
+  </div>
+  <h3 class="clients-total" id="client-total"></h3>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
+    integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
-    <script src="js/chat.js"></script>
-    <script>
-      $.get("nav.html", function (data) {
-          $("#nav-placeholder").replaceWith(data);
-      });
-      
+  <script src="js/chat.js"></script>
+  <script>
+    $.get("nav.html", function (data) {
+      $("#nav-placeholder").replaceWith(data);
+    });
+
   </script>
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
 </html>
