@@ -3,6 +3,8 @@ const controllers = require("../controllers");
 var router = express.Router();
 const multer = require("multer");
 const path = require("path");
+
+//the below code is used to store the uploded files to the database
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "profile-img/");
@@ -12,6 +14,7 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + path.extname(file.originalname)); //Appending extension
     },
 });
+//setting some constraints to the file upload such as the max file to be uploaded and file formats
 const upload = multer({
     storage: storage,
     limits: {
@@ -32,6 +35,7 @@ router.get("/items", (req, res) => {
     controllers.profileController.userItems(req, res);
 });
 
+//sendng the response back to the client via post
 router.post(
     "/saveProfileImg",
     upload.single("profile-img-upload"),

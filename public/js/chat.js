@@ -5,6 +5,7 @@ $(document).ready(function () {
     startChat();
 });
 
+//the below function retrives the user's name and location from the database using ajax
 const displayUserDetails = () => {
     const queryString = window.location.search;
     $.ajax({
@@ -20,15 +21,14 @@ const displayUserDetails = () => {
     });
 };
 
+//the below function is use to get the
 function startChat() {
-    const clientsTotal = document.getElementById("client-total");
-
+    const clientsTotal = document.getElementById("total users connected");
     const messageContainer = document.getElementById("message-container");
     const nameInput = document.getElementById("name-input");
     const messageForm = document.getElementById("message-form");
     const messageInput = document.getElementById("message-input");
-
-    //  const messageTone = new Audio('/message-tone.mp3')
+    //
     const messageTone = new Audio("/message-tone.mp3");
 
     messageForm.addEventListener("submit", (e) => {
@@ -36,9 +36,9 @@ function startChat() {
         sendMessage();
     });
 
-    // socket.on('clients-total', (data) => {
-    //   clientsTotal.innerText = `User Available to chat`
-    // })
+    socket.on("clients-total", (data) => {
+        clientsTotal.innerText = `User Available to chat`;
+    });
 
     function sendMessage() {
         if (messageInput.value === "") return;
@@ -52,9 +52,9 @@ function startChat() {
         addMessageToUI(true, data);
         messageInput.value = "";
     }
+    //notify the user with they recieve any messages from the other user with a tone sound
 
     socket.on("chat-message", (data) => {
-        // console.log(data)
         messageTone.play();
         addMessageToUI(false, data);
     });
@@ -74,10 +74,11 @@ function startChat() {
         scrollToBottom();
     }
 
+    //this function is used to add a scroll features to the notifications when the dialogue is full
     function scrollToBottom() {
         messageContainer.scrollTo(0, messageContainer.scrollHeight);
     }
-
+    //the below event listener lets the user to know the activity of the other user when he's typing the message
     messageInput.addEventListener("focus", (e) => {
         socket.emit("feedback", {
             feedback: `✍️ ${nameInput.value} is typing a message`,
@@ -104,7 +105,7 @@ function startChat() {
   `;
         messageContainer.innerHTML += element;
     });
-
+    //the below function will clear the event listeners if their activity is negative
     function clearFeedback() {
         document.querySelectorAll("li.message-feedback").forEach((element) => {
             element.parentNode.removeChild(element);
