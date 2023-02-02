@@ -1,4 +1,6 @@
-/* Image pre-view CSS */
+/*********************************************************/
+/*Css for formatting the Image pre-view on the add item form */
+
 input[type="file"] {
   display: block;
 }
@@ -28,8 +30,14 @@ input[type="file"] {
   background: white;
   color: black;
 }
+/*********************************************************/
 
-/* Css for scaling Images in slider */
+
+
+/*********************************************************/
+/* Css for scaling Images in slider on the item page based on 
+mobile or large*/
+
 .img-responsive {
   max-width: 60%;
   height: auto;
@@ -51,7 +59,10 @@ input[type="file"] {
     max-width: 30%;
   }
 }
+/*********************************************************/
 
+
+/* Font size class for error messages on item form */
 .small-text {
   font-size: small;
 }

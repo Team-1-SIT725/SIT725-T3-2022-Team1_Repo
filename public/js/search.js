@@ -1,8 +1,21 @@
+/*****************************************************************************
+Function: $(document).ready
+Author: Phil Williams
+
+Purpose: jQuery Function that runs once the DOM is loaded. Runs the 
+search function
+*****************************************************************************/
 $(document).ready(function () {
     search();
 });
 
-// perform search
+/*****************************************************************************
+Function: search
+Author: Phil Williams
+
+Purpose: Performs search based on the search term used.
+calls loadResults on success
+*****************************************************************************/
 function search() {
     let url;
     const queryString = window.location.search;
@@ -32,6 +45,14 @@ function search() {
     }
 }
 
+/*****************************************************************************
+Function: loadResults
+Author: Phil Williams
+
+Purpose: Reads the returned search results calls the addCard function to 
+create item cards in rows three cards per row on large screened devices. 
+Inserts these into the search results element
+*****************************************************************************/
 const loadResults = (data) => {
     let html = "";
     let i = 0;
@@ -50,6 +71,13 @@ const loadResults = (data) => {
     document.getElementById("search-results").innerHTML = html;
 };
 
+/*****************************************************************************
+Function: addCard
+Author: Phil Williams
+
+Purpose: This function constructs a HTMl card based on the returned search 
+item and returns that HTMl element to the loadResults function.
+*****************************************************************************/
 const addCard = (item) => {
     let html = `
    		<div class="col s12 m4">
