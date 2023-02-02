@@ -6,12 +6,9 @@ router.get("/", (req, res) => {
     controllers.SearchController.search(req, res);
 });
 
+//Not Currently in use
 router.get("/item", (req, res) => {
     controllers.SearchController.searchItems(req, res);
-});
-
-router.get("/user", (req, res) => {
-    controllers.SearchController.searchUser(req, res);
 });
 
 module.exports = router;

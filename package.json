@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "mocha --reporter spec"
-  },
+      },
   "repository": {
     "type": "git",
     "url": "https://github.com/Kachi-Okorie/SIT725-T3-2022-Team1_Repo.git"
@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.3",
+    "supertest": "^6.3.3"
   }
 }
