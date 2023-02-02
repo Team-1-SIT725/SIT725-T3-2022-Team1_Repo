@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Token schema which stores the token generated for a user
 const tokenSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
