@@ -5,26 +5,9 @@ const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 
-const JWTSecret = "mfefkuhio3k2rjkofn2mbikbkwjhnkj";
+
 const bcryptSalt = 10;
-const clientURL = "http://localhost:3000";
 
-// const signup = async (data) => {
-//   let user = await User.findOne({ email: data.email });
-//   if (user) {
-//     throw new Error("Email already exist", 422);
-//   }
-//   user = new User(data);
-//   const token = JWT.sign({ id: user._id }, JWTSecret);
-//   await user.save();
-
-//   return (data = {
-//     userId: user._id,
-//     email: user.email,
-//     name: user.name,
-//     token: token,
-//   });
-// };
 
 const requestPasswordReset = async (email, res) => {
   const user = await User.findOne({ email });

@@ -7,8 +7,11 @@ This guide assumes you have the following installed:
 -   git or Github desktop [github desktop download](https://desktop.github.com/)
 -   npm [npm download & install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 -   VS Code [download](https://code.visualstudio.com/download)
+-   Docker [download](https://www.docker.com/products/docker-desktop/) 
 
 If not, please see the relevant installation guides.
+
+#### NB: The dockerized version of this app can be found in the *dockerizedapp* branch
 
 -   From your command line, navigate to where you want to save the repository.
 -   Run the following commands to clone the repository and set up the folders.
@@ -18,9 +21,9 @@ git clone https://github.com/Team-1-SIT725/SIT725-T3-2022-Team1_Repo.git
 
 cd SIT725-T3-2022-Team1_Repo
 
-mkdir upload
-mkdir uploadAdr
-mkdir profile-img
+mkdir upload - directory for storing profile item files
+mkdir uploadAdr - directory for storing user address documents
+mkdir profile-img - directory for storing profile images.
 ```
 
 -   If your system has VS Code setup as a system path, use `code .` otherwise, open vs code and use the open folder option to open the SIT725-T3-2022-Team1_Repo directory.
@@ -84,6 +87,15 @@ npm start
 Enter `http://localhost:3000/` in your web browser, and you will be presented with the login screen. Create a new account and test the system out.
 
 Congratulations!!! You are setup and ready to go for more information and guides on using the different parts of TradeBiBata please see the [Wiki](https://github.com/Team-1-SIT725/SIT725-T3-2022-Team1_Repo/wiki)
+
+## Running through Docker
+
+This is an easier way to run the app removing the need to clone the repository.
+
+Follow the steps to run the app with docker. To use this method it is important Docker desktop is up on your system.
+1. Run *docker pull kachio/team1project:latest* - This pulls the container from a docker repository created for this application.
+2. Run *docker run -dp 3000:3000 team1project:latest* - This assigns the app to port 3000.
+3. Now you can access the app on `http://localhost:3000/`
 
 ## Configure Search
 
