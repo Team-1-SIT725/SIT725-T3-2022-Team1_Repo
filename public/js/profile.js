@@ -15,12 +15,18 @@ const displayUserDetails = () => {
         type: "GET",
 
         success: (result) => {
-            $("#user_name").text(result.data.user);
-            $("#location").text(result.data.location);
-            if (result.data.profileImg) {
-                $("#profile-img").attr(
-                    "src",
-                    `/api/profile/profileImg/${result.data.profileImg}`
+            if (result.statusCode === 200) {
+                $("#user_name").text(result.data.user);
+                $("#location").text(result.data.location);
+                if (result.data.profileImg) {
+                    $("#profile-img").attr(
+                        "src",
+                        `/api/profile/profileImg/${result.data.profileImg}`
+                    );
+                }
+            } else {
+                console.log(
+                    `Error retrieving user details\nStatusCode: ${result.statusCode}, Message: ${result.message}`
                 );
             }
         },
@@ -81,8 +87,14 @@ function display() {
         url: "/api/profile/items" + queryString,
         type: "GET",
         success: (result) => {
-            console.log(result.data);
-            displayResults(result.data);
+            if (result.statusCode === 200) {
+                console.log(result.data);
+                displayResults(result.data);
+            } else {
+                console.log(
+                    `Error retrieving items\nStatusCode: ${result.statusCode}, Message: ${result.message}`
+                );
+            }
         },
         error: (err) => {
             console.log(err);

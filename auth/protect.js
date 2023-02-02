@@ -1,13 +1,12 @@
-const protectRoute = (req, res, next) =>{
+const protectRoute = (req, res, next) => {
     if (req.isAuthenticated()) {
-      return next();
+        return next();
     }
-    console.log('Please log in to continue');
-    res.redirect('/login');
-  }
- 
-  
-  module.exports = {
-      protectRoute,
-      // allowIf,
-    };
+    console.log("Please log in to continue");
+    res.redirect("/login.html");
+};
+
+module.exports = {
+    protectRoute,
+    // allowIf,
+};
