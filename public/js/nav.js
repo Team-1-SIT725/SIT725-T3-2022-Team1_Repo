@@ -1,3 +1,5 @@
+const noteSocket = io("/Notifications");
+
 /*****************************************************************************
 Function: $(document).ready
 Author: Phil Williams
@@ -170,4 +172,23 @@ Purpose: Click event to close the search bar if the x is clicked
 *****************************************************************************/
 $(".close-button").click(() => {
     $(".dropdown-search").dropdown("close");
+});
+
+/*****************************************************************************
+Function: notesocket.on("connect")
+Author: Phil Williams
+
+Purpose: Code runs when socket is connected here it returns the current user
+name and puts it in the log this is just for diagnostics
+*****************************************************************************/
+// noteSocket.on("connect", () => {
+//     noteSocket.emit("whoami", (username) => {
+//         console.log(username);
+//     });
+
+// });
+noteSocket.on("receive-notification", (data) => {
+    console.log("This Fired");
+    console.log(data);
+    M.toast({ html: data });
 });

@@ -4,6 +4,7 @@ const itemImages = models.itemModels.itemImages;
 const User = require("../models/User");
 const path = require("path");
 const fs = require("fs");
+const e = require("cors");
 
 /*****************************************************************************
 Function: addItem
@@ -214,10 +215,37 @@ const updateAvailability = async (req, res) => {
     }
 };
 
+const notificationSocket = (io) => {
+    io.on("connection", onConnected);
+
+    function onConnected(socket) {
+        console.log(`new connection ${socket.id}`);
+        //this is a conditional(ternary) operator read here for a good explanation https://www.geeksforgeeks.org/conditional-or-ternary-operator-in-c-c/
+        //Like an if statement. If the user is logged in returns name from the userDB otherwise returns ""
+        socket.user = socket.request.user ? socket.request.user.name : "";
+        socket.userID = socket.request.user ? socket.request.user.id : "";
+        socket.join(socket.userID);
+        socket.on("whoami", (e) => {
+            e(socket.user);
+        });
+        socket.on("lookingAt", (toUserID, itemName, fromUser) => {
+            // let ids = await sIO.of("/Notifications").allSockets();
+            //io.to(socket.request.user.name).emit("receive-notification");
+            socket
+                .to(toUserID)
+                .emit(
+                    "receive-notification",
+                    `${fromUser} is looking at ${itemName}`
+                );
+        });
+    }
+};
+
 module.exports = {
     addItem,
     viewItem,
     itemImage,
     deleteItem,
     updateAvailability,
+    notificationSocket,
 };
