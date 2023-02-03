@@ -9,7 +9,7 @@ $(document).ready(function () {
 const displayUserDetails = () => {
     const queryString = window.location.search;
     $.ajax({
-        url: "/api/profile" + queryString,
+        url: "/api/profile", //+ queryString,
         type: "GET",
         success: (result) => {
             console.log(result);

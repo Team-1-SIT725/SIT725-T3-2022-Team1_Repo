@@ -35,8 +35,14 @@ function search() {
             data: { term: searchTerm },
             type: "GET",
             success: (result) => {
-                console.log(result.data);
-                loadResults(result.data);
+                if (result.data.length > 0) {
+                    console.log(result.data);
+                    loadResults(result.data);
+                } else {
+                    document.getElementById(
+                        "search-results"
+                    ).innerHTML = `<h4 class="white center-align">No Results found</h4>`;
+                }
             },
             error: (err) => {
                 console.log(err);

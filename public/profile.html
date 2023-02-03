@@ -92,7 +92,7 @@
                     <!--  -->
                     <div class="input-field col s12">
                         <input id="itemName" name="itemName" type="text" class="validate" minlength="10" maxlength="100"
-                            data-length="1000" required>
+                            data-length="100" required>
                         <label for="itemName">Item Name</label>
                         <span class="helper-text" data-error="Required Field. Min 10 charcters, max 100"></span>
                     </div>
@@ -122,7 +122,7 @@
 
                     <div class="input-field col s12">
                         <textarea id="itemDescription" name="itemDescription" class="validate materialize-textarea"
-                            data-length="100" required></textarea>
+                            minlength="10" maxlength="100" data-length="1000" required></textarea>
                         <label for="itemDescription">Description</label>
                         <span class="helper-text" data-error="Required Field Min 10 charcters, max 1000"></span>
                     </div>

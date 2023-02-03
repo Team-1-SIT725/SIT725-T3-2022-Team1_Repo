@@ -36,6 +36,10 @@ const displayUserDetailsNav = () => {
                     "src",
                     `/api/profile/profileImg/${result.data.profileImg}`
                 );
+                $("#nav-profile-img").attr(
+                    "src",
+                    `/api/profile/profileImg/${result.data.profileImg}`
+                );
             }
         },
         error: (err) => {
@@ -43,40 +47,6 @@ const displayUserDetailsNav = () => {
         },
     });
 };
-
-// $(".autocomplete").on("input change", function () {
-//     const instance = M.Autocomplete.getInstance(
-//         document.querySelector("#search")
-//     );
-//     let searchTerm = this.value;
-//     $.ajax({
-//         url: "/api/search",
-//         data: { term: searchTerm },
-//         type: "GET",
-//         success: (result) => {
-//             debugger;
-//             // console.log(result);
-//             // data = result.json();
-//             // data = JSON.parse(result);
-//             // let data = JSON.stringify(result.data);
-//             let data = result.data;
-//             console.log(data);
-//             data = data.map((result) => {
-//                 return { label: result.itemName, value: result.itemName };
-//             });
-//             data = JSON.stringify(data);
-//             console.log(data);
-//             // instance.options.updateData(data);
-//             $("#search").autocomplete({
-//                 data: data,
-//                 limit: 6,
-//             });
-//         },
-//         error: (err) => {
-//             console.log(err);
-//         },
-//     });
-// });
 
 /*****************************************************************************
 Function: updateSearch
@@ -111,23 +81,6 @@ function updateSearch(e) {
         },
     });
 }
-
-// let data = await fetch(`/api/search?term=${res.term}`)
-// .then((res) => res.json())
-// .then((res) =>
-//     res.map((res) => {
-//         return {
-//             label: result.itemName,
-//             value: result.name,
-//             id: result._id,
-//         };
-//     })
-// );
-// res(data);
-// },
-// minLength: 2,
-// select: function (event, ui) {
-// console.log(ui.item);
 
 /*****************************************************************************
 Function: OpenSearch
@@ -175,20 +128,26 @@ $(".close-button").click(() => {
 });
 
 /*****************************************************************************
-Function: notesocket.on("connect")
+Function: $("#searchSide").on("keyup")
 Author: Phil Williams
 
-Purpose: Code runs when socket is connected here it returns the current user
-name and puts it in the log this is just for diagnostics
+Purpose: Event listener for enter press on side search text input
+redirects to the search page with entered search term
 *****************************************************************************/
-// noteSocket.on("connect", () => {
-//     noteSocket.emit("whoami", (username) => {
-//         console.log(username);
-//     });
+$("#searchSide").on("keyup", function (e) {
+    if (e.key === "Enter" || e.keyCode === 13) {
+        window.location = "/search.html?search=" + $("#searchSide").val();
+    }
+});
 
-// });
+/*****************************************************************************
+Function: noteSocket.on("receive-notification")
+Author: Phil Williams
+
+Purpose: This is a socket event listener when the server issues a 
+receive-notification event for the current user 
+*****************************************************************************/
 noteSocket.on("receive-notification", (data) => {
-    console.log("This Fired");
     console.log(data);
-    M.toast({ html: data });
+    M.toast({ html: data }); //toast is a metalized css popup
 });
