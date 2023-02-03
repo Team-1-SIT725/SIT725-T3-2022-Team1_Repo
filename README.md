@@ -83,7 +83,6 @@ Once everything is installed and configured, you can start TradeBiBata by runnin
 ```
 npm start
 ```
-
 Enter `http://localhost:3000/` in your web browser, and you will be presented with the login screen. Create a new account and test the system out.
 
 Congratulations!!! You are setup and ready to go for more information and guides on using the different parts of TradeBiBata please see the [Wiki](https://github.com/Team-1-SIT725/SIT725-T3-2022-Team1_Repo/wiki)

@@ -12,10 +12,7 @@ const onSocket = (io) => {
 			socket.broadcast.emit("message:receive", payload);
 		});
 
-		// socket.on("disconnect", () => {
-		// 	const user = users.filter((user) => user.sockeId === socket.id);
-		// 	io.emit("global:message", `${user[0].name} just left !`);
-		// });
+		
 	});
 };
 

@@ -10,7 +10,6 @@
     const userId = urlParams.get("id");
         document.getElementById("token").value = token;
         document.getElementById("userId").value = userId;
-        // ${"#token"}.val(token);
-        // ${"#userId"}.val(userId);
+      
 
     });
