@@ -1,10 +1,26 @@
+const itemSocket = io("/Notifications");
+let itemDetails;
+
+/*****************************************************************************
+Function: $(document).ready
+Author: Phil Williams
+
+Purpose: jQuery Function that runs once the DOM is loaded. Initialises a number 
+of materialize css components and jquery events.
+*****************************************************************************/
 $(document).ready(function () {
     getItem();
     $(".modal").modal();
     $("select").formSelect();
 });
 
-//query DB and get item based on ID in URL
+/*****************************************************************************
+Function: getItem
+Author: Phil Williams
+
+Purpose: This function sends the ID in the URL to the /api/item/view route
+and recives the corrisponding item details and passes them to loadItem
+*****************************************************************************/
 function getItem() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -24,6 +40,13 @@ function getItem() {
     });
 }
 
+/*****************************************************************************
+Function: loadItem
+Author: Phil Williams
+
+Purpose: This function takes the item output from get items and constructs 
+dynamic HTML to placed on the item.html page
+*****************************************************************************/
 const loadItem = (item) => {
     //html to dynamically load item
     let html = `<div class="row">
@@ -104,8 +127,25 @@ const loadItem = (item) => {
         clearInterval(int);
     }
     $(".carousel").hover(stop, run);
+
+    //saves items details for other modules to use
+    itemDetails = item;
+
+    itemSocket.emit("whoami", (userName) => {
+        console.log(`UserName:${userName}`);
+        itemSocket.emit("lookingAt", item.userID, item.itemName, userName);
+    });
 };
 
+/*****************************************************************************
+Function: deleteItem
+Author: Phil Williams
+
+Purpose: This function passes the item ID from the URL to the /api/item/delete
+route. On success a modal is displayed with a messaged and countdown before
+you are redirected to the profile page. countDown is called to perform the 
+countdown and redirect.
+*****************************************************************************/
 const deleteItem = () => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -128,7 +168,13 @@ const deleteItem = () => {
     });
 };
 
-//Redirect to profile page once
+/*****************************************************************************
+Function: countDown
+Author: Phil Williams
+
+Purpose: This function is called by the delete item fucntion counts down 7
+seconds then redirects to the profile page.
+*****************************************************************************/
 let countDownSeconds = 7;
 function countDown() {
     countDownSeconds -= 1;
@@ -140,6 +186,14 @@ function countDown() {
     }
 }
 
+/*****************************************************************************
+Function: updateAvailability
+Author: Phil Williams
+
+Purpose: This function takes the IT id from the URL and new item status from
+itemAvailability dropdown and passes them to them to the
+/api/item/updateavailability route on success page is reloaded.
+*****************************************************************************/
 const updateAvailability = () => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -155,3 +209,21 @@ const updateAvailability = () => {
         }
     });
 };
+
+/*****************************************************************************
+Function: 
+Author: Phil Williams
+
+Purpose: 
+*****************************************************************************/
+// itemSocket.on("connect", () => {
+//     itemSocket.emit("whoami", (userName) => {
+//         console.log(`UserName:${userName}`);
+//         itemSocket.emit(
+//             "lookingAt",
+//             itemDetails.userID,
+//             itemDetails.itemName,
+//             userName
+//         );
+//     });
+// });

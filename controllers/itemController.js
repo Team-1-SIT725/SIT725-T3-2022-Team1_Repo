@@ -4,6 +4,7 @@ const itemImages = models.itemModels.itemImages;
 const User = require("../models/User");
 const path = require("path");
 const fs = require("fs");
+const e = require("cors");
 
 /*****************************************************************************
 Function: addItem
@@ -214,10 +215,69 @@ const updateAvailability = async (req, res) => {
     }
 };
 
+/*****************************************************************************
+Function: notificationSocket
+Author: Phil Williams
+
+Purpose: Controls socket connections for the notifications name space
+******************************************************************************/
+
+const notificationSocket = (io) => {
+    io.on("connection", onConnected);
+
+    /*****************************************************************************
+Function: onConnected
+Author: Phil Williams
+
+Purpose: Code runs on new notification socket connection
+******************************************************************************/
+
+    function onConnected(socket) {
+        console.log(`new connection ${socket.id}`);
+        //this is a conditional(ternary) operator read here for a good explanation https://www.geeksforgeeks.org/conditional-or-ternary-operator-in-c-c/
+        //Like an if statement. If the user is logged in returns name from the userDB otherwise returns ""
+        socket.user = socket.request.user ? socket.request.user.name : ""; //add username to socket if logged in
+        socket.userID = socket.request.user ? socket.request.user.id : ""; //add userID to socket if logged in
+        socket.join(socket.userID); //creates a room based on the users ID
+
+        /*****************************************************************************
+        Function: whoami
+        Author: Phil Williams
+
+        Purpose: Sends the current users name 
+        ******************************************************************************/
+
+        socket.on("whoami", (e) => {
+            e(socket.user);
+        });
+
+        /*****************************************************************************
+        Function: lookingAt
+        Author: Phil Williams
+
+        Purpose: Receives socket emit when someone looks at an item then send a message 
+        to the item owner that someone is looking at that item.
+        ******************************************************************************/
+
+        socket.on("lookingAt", (toUserID, itemName, fromUser) => {
+            //checks that user is not looking at their own item
+            if (toUserID != socket.request.user.id) {
+                socket
+                    .to(toUserID)
+                    .emit(
+                        "receive-notification",
+                        `${fromUser} is looking at ${itemName}`
+                    );
+            }
+        });
+    }
+};
+
 module.exports = {
     addItem,
     viewItem,
     itemImage,
     deleteItem,
     updateAvailability,
+    notificationSocket,
 };
