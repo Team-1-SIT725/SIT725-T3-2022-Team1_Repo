@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
+//the routes point each get and post action to a controller function which executes as instructed
 const {
     registerView,
     loginView,
@@ -16,7 +17,7 @@ const {
 
 router.get("/register", registerView);
 router.get("/login", loginView);
-//Dashboard
+
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);

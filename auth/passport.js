@@ -18,7 +18,6 @@ const loginCheck = passport => {
           }
 
           //Match Password
-
           bcrypt.compare(password, user.password, (error, isMatch) => {
             if (error) throw error;
             if (isMatch) {

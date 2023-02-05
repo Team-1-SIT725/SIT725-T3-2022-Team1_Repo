@@ -33,7 +33,7 @@ const requestPasswordReset = async (email, res) => {
   //sendEmail function is triggered after the above process
   sendEmail(
     user.email,
-    "Password Reset Request",
+    "Password Reset Request", //email subject
     {
       name: user.name,
       link: link,
@@ -77,7 +77,7 @@ const resetPassword = async (userId, token, password) => {
   //an email is sent to the user after the password reset has been successful
   sendEmail(
     user.email,
-    "Password Reset Successfully",
+    "Password Reset Successfully", //email subject
     {
       name: user.name,
     },
@@ -99,7 +99,7 @@ const verifyEmail = async (email, res) => {
   const link2 = `localhost:3000/login.html`; //link embedded in email message for email verification 
   sendEmail(
     user.email,
-    "Email Verification",
+    "Email Verification", //email subject
     {
       name: user.name,
       link: link2,
