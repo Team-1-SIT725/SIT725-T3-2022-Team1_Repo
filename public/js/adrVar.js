@@ -7,7 +7,6 @@ $(document).ready(function () {
 });
 
 const submitAddItem = () => {
-
     //Check form is valid before submitting
     let frmValid = true;
     let form = document.querySelector("#addressForm");
