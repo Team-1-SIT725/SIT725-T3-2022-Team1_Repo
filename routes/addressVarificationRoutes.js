@@ -1,5 +1,5 @@
 let express = require("express");
-let router = express.Router();
+const router = express.Router();
 let controller = require("../controllers");
 const multer = require("multer");
 const fs = require("fs");
@@ -26,6 +26,7 @@ const upload = multer({
     },
 });
 
+
 router.post(
     "/add",
     upload.single("img-upload"),
@@ -33,20 +34,9 @@ router.post(
         controller.addressVarController.addForm(req, res);
     },
     (error, req, res, next) => {
-        // fs.unlink("upload\file")
+        console.log(error.message);
         res.status(400).send({ error: error.message });
     }
 );
-// router.post(
-//     "/addressUpload",
-//     upload.single("img-upload"),
-//     (req, res) => {
-//         controller.userProfilePrivateController.addForm(req, res);
-//     },
-//     (error, req, res, next) => {
-//         // fs.unlink("upload\file")
-//         res.status(400).send({ error: error.message });
-//     }
-// );
 
 module.exports = router;

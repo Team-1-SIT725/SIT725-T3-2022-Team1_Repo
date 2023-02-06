@@ -1,21 +1,37 @@
-// import $ from "jquery";
-// const $ = require( "jquery" );
+
 $(document).ready(function () {
-    // $(".modal").modal();
     $("select").formSelect();
-    // $(".collapsible").collapsible();
     $("#addFormSubmitBt").click(() => {
         submitAddItem();
     });
-    // $("#addItemSubmit").click(submitForm);
-    // $("input#itemName, textarea#itemDescription").characterCounter();
-    // $("#img-upload").on("change", imgPreview);
 });
+
 const submitAddItem = () => {
-    let formData = new FormData(document.querySelector("#addressForm"));
-    console.log("Form Data Submitted: ", formData);
-    addItemToApp(formData);
+
+    //Check form is valid before submitting
+    let frmValid = true;
+    let form = document.querySelector("#addressForm");
+    let fields = document.querySelector("#addressForm").elements;
+
+    //checks each element in the form to see if it's valid based on the conditions
+    //set in the HTML
+    for (i = 0; i < fields.length; i++) {
+        if (!fields[i].checkValidity()) {
+            frmValid = false;
+            // adds invalid class it element
+            fields[i].classList.add("invalid");
+        }
+    }
+    if (frmValid) {
+        let formData = new FormData(form);
+        console.log("Form Data Submitted: ", formData);
+        addItemToApp(formData);
+    }
 };
+
+// Post form to the route using ajax
+// If success then go to login page 
+// If not then print out error message
 const addItemToApp = (formData) => {
     $.ajax({
         url: "/api/addressVarification/add",
@@ -24,9 +40,10 @@ const addItemToApp = (formData) => {
         processData: false,
         contentType: false,
         success: (result) => {
-            // alert(result.message);
-            // location.reload(); //used to reload the page
             window.location = "/login.html";
+        },
+        error: (err) => {
+            console.log(err.message);
         },
     });
 };
